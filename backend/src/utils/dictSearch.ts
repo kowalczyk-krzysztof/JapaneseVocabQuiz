@@ -2,23 +2,33 @@ import { kanaList } from './kanaArray';
 
 const dictionary = require('../../data/jmdict.json');
 
-export const findMatchingWords = (inputWord: string) => {
+export interface Word {
+  kanji: [{ text: string }];
+  kana: [{ text: string }];
+  sense: [
+    {
+      gloss: [{ text: string }];
+    }
+  ];
+}
+
+export const findMatchingWords = (inputWord: string): Word[] => {
   if (inputWord.length === 1) {
     return dictionary.words
-      .filter((el: any) => {
+      .filter((el: Word) => {
         return el.kanji.some(
-          (el: any) =>
+          (el) =>
             el.text.length === 2 &&
             kanaList.includes(el.text.charAt(0)) === false &&
             kanaList.includes(el.text.charAt(1)) === false &&
             el.text.charAt(0) === inputWord
         );
       })
-      .filter((el: any) => el.kanji.length === 1);
+      .filter((el: Word) => el.kanji.length === 1);
   } else
-    return dictionary.words.filter((el: any) => {
+    return dictionary.words.filter((el: Word) => {
       return el.kanji.some(
-        (el: any) =>
+        (el) =>
           el.text.length === 2 &&
           kanaList.includes(el.text.charAt(0)) === false &&
           kanaList.includes(el.text.charAt(1)) === false &&
@@ -26,4 +36,3 @@ export const findMatchingWords = (inputWord: string) => {
       );
     });
 };
-console.log(findMatchingWords('逃'));

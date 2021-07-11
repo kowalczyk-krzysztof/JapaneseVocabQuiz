@@ -4,8 +4,8 @@ import { RootState } from '../../app/store';
 export interface WordProps {
   word: string;
   wordExists: boolean;
-  reading: string | null;
-  definitions: string[][] | null;
+  reading: string;
+  definitions: string[];
 }
 
 export interface WordObject {
@@ -16,8 +16,8 @@ const initialState: WordObject = {
   word: {
     word: '',
     wordExists: false,
-    reading: null,
-    definitions: null,
+    reading: '',
+    definitions: [''],
   },
   wordLoading: false,
 };
@@ -36,8 +36,8 @@ const wordsSlice = createSlice({
     SET_WORD_RESET(state) {
       state.word.word = '';
       state.word.wordExists = false;
-      state.word.reading = null;
-      state.word.definitions = null;
+      state.word.reading = '';
+      state.word.definitions = [''];
     },
     SET_WORD_LOADING(state) {
       state.wordLoading = true;

@@ -20,7 +20,7 @@ export const WordInfo: FC = (): JSX.Element => {
         <DisplayWord />
         <p>{word.word.reading}</p>
         <ul>
-          {word.word.definitions?.map((el: any, index: number) => {
+          {word.word.definitions?.map((el: string, index: number) => {
             return <li key={index}>{el}</li>;
           })}
         </ul>
