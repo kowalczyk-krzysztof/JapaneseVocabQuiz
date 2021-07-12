@@ -13,12 +13,13 @@ import {
   SET_TIMER_START,
   Game,
   gameSelector,
+  SET_RESET_POINTS_GAINED,
 } from '../../features/game/gameSlice';
 // Utils
 import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
 // Styling
-import { StyledGameStateButton } from './styled-gamestate';
+import { StyledGameStateButton } from './gamestate-styling';
 
 export const NewWordButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export const NewWordButton: FC = (): JSX.Element | null => {
   const word: WordObject = useSelector(wordsSelector);
 
   const clickHandler = async (): Promise<void> => {
+    dispatch(SET_RESET_POINTS_GAINED());
     dispatch(SET_WORD_LOADING());
     const generatedWord: string = await generateWord();
     const wordObject: WordProps = await checkWord(generatedWord);

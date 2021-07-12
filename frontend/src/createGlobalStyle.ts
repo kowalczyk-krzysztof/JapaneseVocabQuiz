@@ -15,9 +15,10 @@ html {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  padding: 0;  
+  padding: 0;
+  text-align: center;
 }
-body{
+body {
   width: 100%
 }
 `;
@@ -34,4 +35,11 @@ export const ButtonTemplate = styled.button`
   border: 2px solid #00abe7;
   cursor: pointer;
   outline: none;
+`;
+
+export const StyledTitle = styled.h1`
+  font-size: 5rem;
+  user-select: none;
+  margin-bottom: 3rem;
+  margin-top: 0;
 `;

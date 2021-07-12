@@ -4,7 +4,9 @@ import { RootState } from '../../app/store';
 export interface Game {
   isGameStarted: boolean;
   points: number;
+  points_gained: number;
   lives: number;
+  lives_lost: number;
   user_answer: boolean | null;
   is_question_answered: boolean;
   time_left: number;
@@ -16,7 +18,9 @@ const startingTime: number = 15;
 const initialState: Game = {
   isGameStarted: false,
   points: 0,
+  points_gained: 0,
   lives: startingLives,
+  lives_lost: 0,
   user_answer: null,
   is_question_answered: false,
   time_left: 15,
@@ -34,12 +38,18 @@ const gameSlice = createSlice({
     },
     SET_POINTS(state, action: PayloadAction<number>) {
       state.points = state.points + action.payload;
+      state.points_gained = action.payload;
+    },
+    SET_RESET_POINTS_GAINED(state) {
+      state.points_gained = 0;
     },
     SET_RESET_LIVES(state) {
       state.lives = startingLives;
+      state.lives_lost = 0;
     },
     SET_REMOVE_LIFE(state) {
       state.lives = state.lives - 1;
+      state.lives_lost = state.lives_lost + 1;
     },
     SET_USER_ANSWER(state, action: PayloadAction<boolean | null>) {
       state.user_answer = action.payload;
@@ -55,8 +65,9 @@ const gameSlice = createSlice({
     },
     SET_DECREASE_TIME(state) {
       state.time_left = state.time_left - 1;
-      if (state.time_left === 0) {
+      if (state.time_left < 0) {
         state.lives = state.lives - 1;
+        state.lives_lost = state.lives_lost + 1;
         state.is_question_answered = true;
       }
     },
@@ -68,6 +79,7 @@ export const gameSelector = (state: RootState) => state.game;
 export const {
   SET_GAME_STARTED,
   SET_POINTS,
+  SET_RESET_POINTS_GAINED,
   SET_RESET_LIVES,
   SET_REMOVE_LIFE,
   SET_USER_ANSWER,
