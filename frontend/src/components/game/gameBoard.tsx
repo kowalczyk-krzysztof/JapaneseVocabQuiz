@@ -2,33 +2,29 @@ import React, { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
-import { NewWordButton } from '../gamestate/newWordButton';
-import { AnswerButtons } from '../answers/answerButtons';
-import { StartGameButton } from '../gamestate/startGameButton';
-import { UserStats } from '../user/userStats';
 // Components
-import WordInfo from '../words/wordInfo';
-import Countdown from '../countdown/countdown';
+import { NewWordButton } from '../startandnew/newWordButton';
+import { AnswerButtons } from '../answers/answerButtons';
+import { PointsContainer } from '../user/pointsContainer';
+import { LivesContainer } from '../user/livesContainer';
+import { WordInfo } from '../words/wordInfo';
+import { Countdown } from '../countdown/countdown';
 
-export const GameBoard: FC = (): JSX.Element => {
+export const GameBoard: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
 
-  if (game.isGameStarted === false)
-    return (
-      <Fragment>
-        <StartGameButton />
-      </Fragment>
-    );
-  else
+  if (game.isGameStarted === true)
     return (
       <Fragment>
         <Countdown />
-        <UserStats />
+        <PointsContainer />
+        <LivesContainer />
         <WordInfo />
         <NewWordButton />
         <AnswerButtons />
       </Fragment>
     );
+  else return null;
 };
 
 export default GameBoard;

@@ -3,6 +3,7 @@ import { RootState } from '../../app/store';
 
 export interface Game {
   isGameStarted: boolean;
+  isGameOver: boolean;
   points: number;
   points_gained: number;
   lives: number;
@@ -17,6 +18,7 @@ const startingTime: number = 15;
 
 const initialState: Game = {
   isGameStarted: false,
+  isGameOver: false,
   points: 0,
   points_gained: 0,
   lives: startingLives,
@@ -32,6 +34,9 @@ const gameSlice = createSlice({
   reducers: {
     SET_GAME_STARTED(state) {
       state.isGameStarted = true;
+    },
+    SET_GAME_NOT_OVER(state) {
+      state.isGameOver = false;
     },
     SET_RESET_POINTS(state) {
       state.points = 0;
@@ -49,6 +54,7 @@ const gameSlice = createSlice({
     },
     SET_REMOVE_LIFE(state) {
       state.lives = state.lives - 1;
+      if (state.lives === 0) state.isGameOver = true;
       state.lives_lost = state.lives_lost + 1;
     },
     SET_USER_ANSWER(state, action: PayloadAction<boolean | null>) {
@@ -65,8 +71,9 @@ const gameSlice = createSlice({
     },
     SET_DECREASE_TIME(state) {
       state.time_left = state.time_left - 1;
-      if (state.time_left < 0) {
+      if (state.time_left === 0) {
         state.lives = state.lives - 1;
+        if (state.lives === 0) state.isGameOver = true;
         state.lives_lost = state.lives_lost + 1;
         state.is_question_answered = true;
       }
@@ -78,6 +85,7 @@ export const gameSelector = (state: RootState) => state.game;
 // Actions and reducer
 export const {
   SET_GAME_STARTED,
+  SET_GAME_NOT_OVER,
   SET_POINTS,
   SET_RESET_POINTS_GAINED,
   SET_RESET_LIVES,

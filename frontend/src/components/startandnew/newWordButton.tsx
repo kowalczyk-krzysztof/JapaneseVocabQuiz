@@ -42,9 +42,11 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <StyledGameStateButton onClick={clickHandler}>
-        NEW WORD
-      </StyledGameStateButton>
+      <div style={{ gridArea: 'buttons' }}>
+        <StyledGameStateButton onClick={clickHandler}>
+          NEW WORD
+        </StyledGameStateButton>
+      </div>
     );
   else return null;
 };

@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
@@ -16,10 +16,16 @@ export const AnswerButtons: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <Fragment>
+      <div
+        style={{
+          gridArea: 'buttons',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <AnswerTrueButton />
         <AnswerFalseButton />
-      </Fragment>
+      </div>
     );
   else return null;
 };

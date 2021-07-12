@@ -1,22 +1,20 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
-// Components
-import { StartGameButton } from '../gamestate/startGameButton';
+import { DisplayWord } from '../words/displayWord';
 
-export const GameOverScreen: FC = (): JSX.Element | null => {
+export const GameOverScreen: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
 
-  if (game.isGameStarted === true && game.lives <= 0)
-    return (
-      <Fragment>
-        <h1>GAME OVER!</h1>
-        <h1>Total Points: {game.points}</h1>
-        <StartGameButton />
-      </Fragment>
-    );
-  else return null;
+  return (
+    <div style={{ gridArea: 'word' }}>
+      <h1>GAME OVER!</h1>
+      <h1>FINAL SCORE: {game.points}</h1>
+      <span>LAST WORD</span>
+      <DisplayWord />
+    </div>
+  );
 };
 
 export default GameOverScreen;

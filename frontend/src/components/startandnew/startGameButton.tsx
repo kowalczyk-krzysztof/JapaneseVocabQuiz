@@ -11,6 +11,7 @@ import {
   gameSelector,
   Game,
   SET_RESET_POINTS_GAINED,
+  SET_GAME_NOT_OVER,
 } from '../../features/game/gameSlice';
 import {
   SET_NEW_WORD,
@@ -26,13 +27,14 @@ import { checkWord } from '../../features/words/checkWord';
 // Styling
 import { StyledGameStateButton } from './gamestate-styling';
 
-export const StartGameButton: FC = (): JSX.Element => {
+export const StartGameButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
   const game: Game = useSelector(gameSelector);
   const word: WordObject = useSelector(wordsSelector);
 
   const clickHandler = async (): Promise<void> => {
     if (game.isGameStarted === false) dispatch(SET_GAME_STARTED());
+    if (game.isGameOver === true) dispatch(SET_GAME_NOT_OVER());
     if (game.lives <= 0) dispatch(SET_RESET_LIVES());
     if (game.points > 0) dispatch(SET_RESET_POINTS());
     if (game.points_gained > 0) dispatch(SET_RESET_POINTS_GAINED());
@@ -45,9 +47,15 @@ export const StartGameButton: FC = (): JSX.Element => {
     dispatch(SET_NEW_WORD(wordObject));
     dispatch(SET_TIMER_START());
   };
-  return (
-    <StyledGameStateButton onClick={clickHandler}>START</StyledGameStateButton>
-  );
+  if (game.isGameStarted === false || game.isGameOver === true)
+    return (
+      <div style={{ gridArea: 'buttons' }}>
+        <StyledGameStateButton onClick={clickHandler}>
+          START
+        </StyledGameStateButton>
+      </div>
+    );
+  else return null;
 };
 
 export default StartGameButton;

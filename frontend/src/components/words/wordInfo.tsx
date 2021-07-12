@@ -1,10 +1,12 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 import { Game, gameSelector } from '../../features/game/gameSlice';
 // Components
 import { DisplayWord } from './displayWord';
+import { Definitions } from './definitions';
+import { GameOverScreen } from '../game/gameOverScreen';
 
 export const WordInfo: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
@@ -12,25 +14,43 @@ export const WordInfo: FC = (): JSX.Element => {
 
   if (
     game.isGameStarted === true &&
+    game.isGameOver === false &&
     game.is_question_answered === true &&
     word.wordLoading === false
   )
     return (
-      <Fragment>
+      <div
+        style={{
+          gridArea: 'word',
+          background: 'black',
+        }}
+      >
         <DisplayWord />
-        <p>{word.word.reading}</p>
-        <ul>
-          {word.word.definitions?.map((el: string, index: number) => {
-            return <li key={index}>{el}</li>;
-          })}
-        </ul>
-      </Fragment>
+        <span>{word.word.reading}</span>
+        <Definitions />
+      </div>
+    );
+  else if (game.isGameOver === true)
+    return (
+      <div
+        style={{
+          gridArea: 'word',
+          background: 'black',
+        }}
+      >
+        <GameOverScreen />
+      </div>
     );
   else
     return (
-      <Fragment>
+      <div
+        style={{
+          gridArea: 'word',
+          background: 'black',
+        }}
+      >
         <DisplayWord />
-      </Fragment>
+      </div>
     );
 };
 
