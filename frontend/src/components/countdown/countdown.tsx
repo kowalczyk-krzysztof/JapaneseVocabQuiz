@@ -1,12 +1,12 @@
 import React, { FC, Fragment, useEffect } from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { wordsSelector, WordObject } from '../features/words/wordsSlice';
+import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 import {
   SET_DECREASE_TIME,
   gameSelector,
   Game,
-} from '../features/game/gameSlice';
+} from '../../features/game/gameSlice';
 
 export const Countdown: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();

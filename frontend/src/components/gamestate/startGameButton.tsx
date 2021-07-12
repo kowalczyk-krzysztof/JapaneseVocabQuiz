@@ -10,7 +10,7 @@ import {
   SET_TIMER_START,
   gameSelector,
   Game,
-} from '../features/game/gameSlice';
+} from '../../features/game/gameSlice';
 import {
   SET_NEW_WORD,
   SET_WORD_RESET,
@@ -18,10 +18,10 @@ import {
   WordObject,
   WordProps,
   wordsSelector,
-} from '../features/words/wordsSlice';
+} from '../../features/words/wordsSlice';
 // Utils
-import { generateWord } from '../features/words/generateWord';
-import { checkWord } from '../features/words/checkWord';
+import { generateWord } from '../../features/words/generateWord';
+import { checkWord } from '../../features/words/checkWord';
 
 export const StartGameButton: FC = (): JSX.Element => {
   const dispatch = useDispatch();

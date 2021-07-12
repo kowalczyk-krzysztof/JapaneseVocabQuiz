@@ -1,11 +1,15 @@
-import React from 'react';
-import { GameContainer } from './components/gameContainer';
+import React, { Fragment } from 'react';
+// Components
+import { GameContainer } from './components/game/gameContainer';
+// Styling
+import { GlobalStyle } from './createGlobalStyle';
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
+      <GlobalStyle />
       <GameContainer />
-    </div>
+    </Fragment>
   );
 }
 

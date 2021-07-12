@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
-import { wordsSelector, WordObject } from '../features/words/wordsSlice';
+import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 
 export const DisplayWord: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);

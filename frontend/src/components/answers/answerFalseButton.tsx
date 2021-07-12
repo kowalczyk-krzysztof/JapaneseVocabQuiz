@@ -8,24 +8,25 @@ import {
   SET_QUESTION_ANSWERED,
   gameSelector,
   Game,
-} from '../features/game/gameSlice';
-import { wordsSelector, WordObject } from '../features/words/wordsSlice';
+} from '../../features/game/gameSlice';
+import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 
-export const AnswerTrueButton: FC = (): JSX.Element => {
+export const AnswerFalseButton: FC = (): JSX.Element => {
   const dispatch = useDispatch();
   const word: WordObject = useSelector(wordsSelector);
   const game: Game = useSelector(gameSelector);
   const clickHandler = (): void => {
-    dispatch(SET_USER_ANSWER(true));
+    dispatch(SET_USER_ANSWER(false));
     dispatch(SET_QUESTION_ANSWERED());
-    if (word.word.wordExists === true) dispatch(SET_POINTS(5 * game.time_left));
+    if (word.word.wordExists === false)
+      dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());
   };
   return (
     <Fragment>
-      <button onClick={clickHandler}>Real Word</button>
+      <button onClick={clickHandler}>Fake Word</button>
     </Fragment>
   );
 };
 
-export default AnswerTrueButton;
+export default AnswerFalseButton;

@@ -7,16 +7,16 @@ import {
   WordProps,
   wordsSelector,
   WordObject,
-} from '../features/words/wordsSlice';
+} from '../../features/words/wordsSlice';
 import {
   SET_QUESTION_UNANSWERED,
   SET_TIMER_START,
   Game,
   gameSelector,
-} from '../features/game/gameSlice';
+} from '../../features/game/gameSlice';
 // Utils
-import { generateWord } from '../features/words/generateWord';
-import { checkWord } from '../features/words/checkWord';
+import { generateWord } from '../../features/words/generateWord';
+import { checkWord } from '../../features/words/checkWord';
 
 export const NewWordButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();

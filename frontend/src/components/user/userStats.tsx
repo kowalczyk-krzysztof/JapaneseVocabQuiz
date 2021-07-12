@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
-import { gameSelector, Game } from '../features/game/gameSlice';
+import { gameSelector, Game } from '../../features/game/gameSlice';
 
 export const UserStats: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);

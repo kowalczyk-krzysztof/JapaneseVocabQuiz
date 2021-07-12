@@ -1,8 +1,8 @@
 import React, { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
-import { wordsSelector, WordObject } from '../features/words/wordsSlice';
-import { Game, gameSelector } from '../features/game/gameSlice';
+import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
+import { Game, gameSelector } from '../../features/game/gameSlice';
 // Components
 import { DisplayWord } from './displayWord';
 

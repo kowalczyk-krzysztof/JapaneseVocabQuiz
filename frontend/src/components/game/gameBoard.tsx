@@ -1,14 +1,14 @@
 import React, { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
-import { gameSelector, Game } from '../features/game/gameSlice';
-import { NewWordButton } from '../components/newWordButton';
-import { AnswerButtons } from '../components/answerButtons';
-import { StartGameButton } from '../components/startGameButton';
-import { UserStats } from '../components/userStats';
+import { gameSelector, Game } from '../../features/game/gameSlice';
+import { NewWordButton } from '../gamestate/newWordButton';
+import { AnswerButtons } from '../answers/answerButtons';
+import { StartGameButton } from '../gamestate/startGameButton';
+import { UserStats } from '../user/userStats';
 // Components
-import WordInfo from './wordInfo';
-import Countdown from './countdown';
+import WordInfo from '../words/wordInfo';
+import Countdown from '../countdown/countdown';
 
 export const GameBoard: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
