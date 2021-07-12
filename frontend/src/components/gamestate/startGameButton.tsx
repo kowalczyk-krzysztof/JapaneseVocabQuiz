@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -22,6 +22,8 @@ import {
 // Utils
 import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
+// Styling
+import { StyledGameStateButton } from './styled-gamestate';
 
 export const StartGameButton: FC = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -42,9 +44,7 @@ export const StartGameButton: FC = (): JSX.Element => {
     dispatch(SET_TIMER_START());
   };
   return (
-    <Fragment>
-      <button onClick={clickHandler}>New Game</button>
-    </Fragment>
+    <StyledGameStateButton onClick={clickHandler}>START</StyledGameStateButton>
   );
 };
 

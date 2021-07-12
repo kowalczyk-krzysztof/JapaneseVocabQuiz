@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -10,6 +10,8 @@ import {
   Game,
 } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
+// Styling
+import { StyledFalseButton } from './answers-styling';
 
 export const AnswerFalseButton: FC = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -23,9 +25,7 @@ export const AnswerFalseButton: FC = (): JSX.Element => {
     else dispatch(SET_REMOVE_LIFE());
   };
   return (
-    <Fragment>
-      <button onClick={clickHandler}>Fake Word</button>
-    </Fragment>
+    <StyledFalseButton onClick={clickHandler}>Fake Word</StyledFalseButton>
   );
 };
 

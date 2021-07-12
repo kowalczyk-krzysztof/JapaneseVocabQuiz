@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -17,6 +17,8 @@ import {
 // Utils
 import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
+// Styling
+import { StyledGameStateButton } from './styled-gamestate';
 
 export const NewWordButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
@@ -38,9 +40,9 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <Fragment>
-        <button onClick={clickHandler}>New Word</button>
-      </Fragment>
+      <StyledGameStateButton onClick={clickHandler}>
+        NEW WORD
+      </StyledGameStateButton>
     );
   else return null;
 };

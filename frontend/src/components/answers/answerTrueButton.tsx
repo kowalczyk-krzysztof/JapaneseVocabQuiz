@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -10,6 +10,8 @@ import {
   Game,
 } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
+// Styling
+import { StyledTrueButton } from './answers-styling';
 
 export const AnswerTrueButton: FC = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -21,11 +23,7 @@ export const AnswerTrueButton: FC = (): JSX.Element => {
     if (word.word.wordExists === true) dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());
   };
-  return (
-    <Fragment>
-      <button onClick={clickHandler}>Real Word</button>
-    </Fragment>
-  );
+  return <StyledTrueButton onClick={clickHandler}>Real Word</StyledTrueButton>;
 };
 
 export default AnswerTrueButton;
