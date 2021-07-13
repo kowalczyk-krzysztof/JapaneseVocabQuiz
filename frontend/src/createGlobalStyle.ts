@@ -8,9 +8,11 @@ export const red: string = '#f74848';
 export const lightRed: string = '#fa6868';
 export const green: string = '#4df735';
 export const lightGreen: string = '#74f861';
+export const blackish: string = '#0a0713';
 // Units
-export const smallMargin: string = '5vh';
-export const bigMargin: string = '20vh';
+export const smallMargin: string = '15%';
+export const mediumMargin: string = '20%';
+export const bigMargin: string = '25%';
 
 export const GlobalStyle = createGlobalStyle`
 html, body {

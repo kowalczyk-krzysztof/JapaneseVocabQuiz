@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { smallMargin, bigMargin } from '../../createGlobalStyle';
+import {
+  smallMargin,
+  bigMargin,
+  mediumMargin,
+  blackish,
+} from '../../createGlobalStyle';
 
 export const StyledGameContainer = styled.div`
   display: grid;
@@ -21,17 +26,54 @@ export const StyledUserStats = styled.div`
   grid-area: userstats;
   background: #6544e9;
   border: 1px solid white;
-  border-bottom: 0px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 'points timer lives';
   margin-right: ${smallMargin};
   margin-left: ${smallMargin};
-  margin-top: ${smallMargin};
-  padding-bottom: 5px;
+  margin-top: 15vh;
 
-  @media only screen and (min-width: 900px) {
+  padding-bottom: 5px;
+  min-height: 95px;
+
+  @media only screen and (max-height: 720px) {
+    margin-top: 5px;
+  }
+
+  @media only screen and (min-width: 480px) {
+    margin-right: ${mediumMargin};
+    margin-left: ${mediumMargin};
+  }
+
+  @media only screen and (min-width: 992px) {
     margin-right: ${bigMargin};
     margin-left: ${bigMargin};
+  }
+`;
+
+export const StyledGameOver = styled(StyledUserStats)`
+  background: ${blackish};
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  border-bottom: 0px;
+  user-select: none;
+`;
+
+export const StyledGameOverStats = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  p {
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 0;
   }
 `;

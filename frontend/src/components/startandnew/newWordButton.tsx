@@ -47,7 +47,7 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     return (
       <StyledStartAndNewButtonContainer>
         <StyledGameStateButton onClick={clickHandler}>
-          New Word
+          NEW WORD
         </StyledGameStateButton>
       </StyledStartAndNewButtonContainer>
     );

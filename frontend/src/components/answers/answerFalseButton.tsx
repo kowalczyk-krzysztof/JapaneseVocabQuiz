@@ -25,7 +25,7 @@ export const AnswerFalseButton: FC = (): JSX.Element => {
     else dispatch(SET_REMOVE_LIFE());
   };
   return (
-    <StyledFalseButton onClick={clickHandler}>Fake Word</StyledFalseButton>
+    <StyledFalseButton onClick={clickHandler}>FAKE WORD</StyledFalseButton>
   );
 };
 

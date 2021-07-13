@@ -58,7 +58,7 @@ export const Countdown: FC = (): JSX.Element | null => {
   )
     return (
       <StyledCountdownContainer>
-        <span style={{ width: '100%' }}>Time left:</span>
+        <span>Time left</span>
         <svg height={(radius + stroke) * 2} width={(radius + stroke) * 2}>
           <StyledProgressCircle
             stroke={strokeColor}

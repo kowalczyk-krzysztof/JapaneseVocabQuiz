@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { red } from '../../createGlobalStyle';
 
 export const StyledCountdownContainer = styled.div`
   grid-area: timer;
@@ -7,6 +8,15 @@ export const StyledCountdownContainer = styled.div`
   flex-wrap: wrap;
   user-select: none;
   padding-top: 5px;
+
+  p {
+    color: ${red};
+    font-size: 1.5rem;
+  }
+
+  span {
+    width: 100%;
+  }
 `;
 
 export const StyledProgressCircle = styled.circle`

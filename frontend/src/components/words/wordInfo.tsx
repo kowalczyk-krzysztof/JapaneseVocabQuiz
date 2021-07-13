@@ -8,7 +8,7 @@ import { DisplayWord } from './displayWord';
 import { Definitions } from './definitions';
 import { GameOverScreen } from '../game/gameOverScreen';
 // Styling
-import { StyledWordContainer } from './words-styling';
+import { StyledWordContainer, StyledReading } from './words-styling';
 
 export const WordInfo: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
@@ -23,7 +23,7 @@ export const WordInfo: FC = (): JSX.Element => {
     return (
       <StyledWordContainer>
         <DisplayWord />
-        <span>{word.word.reading}</span>
+        <StyledReading>{word.word.reading}</StyledReading>
         <Definitions />
       </StyledWordContainer>
     );

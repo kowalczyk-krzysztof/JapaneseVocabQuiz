@@ -23,7 +23,7 @@ export const AnswerTrueButton: FC = (): JSX.Element => {
     if (word.word.wordExists === true) dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());
   };
-  return <StyledTrueButton onClick={clickHandler}>Real Word</StyledTrueButton>;
+  return <StyledTrueButton onClick={clickHandler}>REAL WORD</StyledTrueButton>;
 };
 
 export default AnswerTrueButton;

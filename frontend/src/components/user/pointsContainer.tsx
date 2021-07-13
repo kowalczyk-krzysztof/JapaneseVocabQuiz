@@ -13,15 +13,11 @@ export const PointsContainer: FC = (): JSX.Element | null => {
   if (game.lives > 0)
     return (
       <StyledPointsContainer>
-        <span style={{ width: '100%', flexGrow: 1 }}>Points:</span>
-        <span style={{ width: '100%', alignItems: 'top', flex: 1 }}>
-          {game.points}
-        </span>
+        <span>Points</span>
+        <span>{game.points}</span>
         {game.points_gained > 0 ? (
           <StyledPointsGained> +{game.points_gained}</StyledPointsGained>
-        ) : (
-          <span />
-        )}
+        ) : null}
       </StyledPointsContainer>
     );
   else return null;

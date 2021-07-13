@@ -25,7 +25,7 @@ export const wordCheck = async (
       else word = inputWord;
       wordExists = false;
       reading = '';
-      definitions = [`This word doesn't exist`];
+      definitions = [];
     } else if (foundWords.length > 1) {
       const index = generateRandomNumber(0, foundWords.length - 1);
       word = foundWords[index].kanji[0].text;
