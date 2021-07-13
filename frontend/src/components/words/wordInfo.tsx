@@ -7,6 +7,8 @@ import { Game, gameSelector } from '../../features/game/gameSlice';
 import { DisplayWord } from './displayWord';
 import { Definitions } from './definitions';
 import { GameOverScreen } from '../game/gameOverScreen';
+// Styling
+import { StyledWordContainer } from './words-styling';
 
 export const WordInfo: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
@@ -19,38 +21,23 @@ export const WordInfo: FC = (): JSX.Element => {
     word.wordLoading === false
   )
     return (
-      <div
-        style={{
-          gridArea: 'word',
-          background: 'black',
-        }}
-      >
+      <StyledWordContainer>
         <DisplayWord />
         <span>{word.word.reading}</span>
         <Definitions />
-      </div>
+      </StyledWordContainer>
     );
   else if (game.isGameOver === true)
     return (
-      <div
-        style={{
-          gridArea: 'word',
-          background: 'black',
-        }}
-      >
+      <StyledWordContainer>
         <GameOverScreen />
-      </div>
+      </StyledWordContainer>
     );
   else
     return (
-      <div
-        style={{
-          gridArea: 'word',
-          background: 'black',
-        }}
-      >
+      <StyledWordContainer>
         <DisplayWord />
-      </div>
+      </StyledWordContainer>
     );
 };
 

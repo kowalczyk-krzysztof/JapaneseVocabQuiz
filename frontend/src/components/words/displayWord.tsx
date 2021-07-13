@@ -6,8 +6,7 @@ import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 export const DisplayWord: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
 
-  if (word.wordLoading === true)
-    return <h1 style={{ fontSize: '54' }}>LOADING</h1>;
+  if (word.wordLoading === true) return <h1 style={{ fontSize: '54' }}>...</h1>;
   else return <h1 style={{ fontSize: '54' }}>{word.word.word}</h1>;
 };
 

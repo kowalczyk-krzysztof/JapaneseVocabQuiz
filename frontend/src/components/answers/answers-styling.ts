@@ -1,16 +1,37 @@
 import styled from 'styled-components';
-import { ButtonTemplate } from '../../createGlobalStyle';
+import {
+  ButtonTemplate,
+  red,
+  lightRed,
+  green,
+  lightGreen,
+} from '../../createGlobalStyle';
 
-export const StyledTrueButton = styled(ButtonTemplate)`
-  background: #4df735;
+export const AnswerButtonsContainer = styled.div`
+  grid-area: buttons;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 5vh;
+`;
+
+const StyledAnswerButton = styled(ButtonTemplate)`
+  border: 2px solid #120c24;
+  color: #120c24;
+`;
+
+export const StyledTrueButton = styled(StyledAnswerButton)`
+  background: ${green};
   :hover {
-    background: #74f861;
+    background: ${lightGreen};
   }
 `;
 
-export const StyledFalseButton = styled(ButtonTemplate)`
-  background: #f74848;
+export const StyledFalseButton = styled(StyledAnswerButton)`
+  background: ${red};
+
   :hover {
-    background: #fa6868;
+    background: ${lightRed};
   }
 `;

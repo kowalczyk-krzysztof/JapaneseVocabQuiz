@@ -25,7 +25,10 @@ import {
 import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
 // Styling
-import { StyledGameStateButton } from './gamestate-styling';
+import {
+  StyledGameStateButton,
+  StyledStartAndNewButtonContainer,
+} from './startandnew-styling';
 
 export const StartGameButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
@@ -49,11 +52,11 @@ export const StartGameButton: FC = (): JSX.Element | null => {
   };
   if (game.isGameStarted === false || game.isGameOver === true)
     return (
-      <div style={{ gridArea: 'buttons' }}>
+      <StyledStartAndNewButtonContainer>
         <StyledGameStateButton onClick={clickHandler}>
           START
         </StyledGameStateButton>
-      </div>
+      </StyledStartAndNewButtonContainer>
     );
   else return null;
 };

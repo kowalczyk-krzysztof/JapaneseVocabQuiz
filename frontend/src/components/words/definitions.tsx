@@ -7,7 +7,6 @@ export const Definitions: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
   return (
     <Fragment>
-      <span>{word.word.reading}</span>
       <ul style={{ listStyleType: 'none' }}>
         {word.word.definitions?.map((el: string, index: number) => {
           return <li key={index}>{el}</li>;

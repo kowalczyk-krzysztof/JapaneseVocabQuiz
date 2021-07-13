@@ -9,6 +9,7 @@ import { PointsContainer } from '../user/pointsContainer';
 import { LivesContainer } from '../user/livesContainer';
 import { WordInfo } from '../words/wordInfo';
 import { Countdown } from '../countdown/countdown';
+import { StyledUserStats } from './game-styling';
 
 export const GameBoard: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
@@ -16,9 +17,11 @@ export const GameBoard: FC = (): JSX.Element | null => {
   if (game.isGameStarted === true)
     return (
       <Fragment>
-        <Countdown />
-        <PointsContainer />
-        <LivesContainer />
+        <StyledUserStats>
+          <Countdown />
+          <PointsContainer />
+          <LivesContainer />
+        </StyledUserStats>
         <WordInfo />
         <NewWordButton />
         <AnswerButtons />

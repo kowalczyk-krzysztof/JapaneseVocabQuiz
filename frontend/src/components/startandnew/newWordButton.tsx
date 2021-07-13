@@ -19,7 +19,10 @@ import {
 import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
 // Styling
-import { StyledGameStateButton } from './gamestate-styling';
+import {
+  StyledGameStateButton,
+  StyledStartAndNewButtonContainer,
+} from './startandnew-styling';
 
 export const NewWordButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
@@ -42,11 +45,11 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <div style={{ gridArea: 'buttons' }}>
+      <StyledStartAndNewButtonContainer>
         <StyledGameStateButton onClick={clickHandler}>
-          NEW WORD
+          New Word
         </StyledGameStateButton>
-      </div>
+      </StyledStartAndNewButtonContainer>
     );
   else return null;
 };

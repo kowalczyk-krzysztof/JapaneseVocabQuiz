@@ -8,23 +8,28 @@ import {
   Game,
 } from '../../features/game/gameSlice';
 // Styling
-import { Testing } from './countdown-styling';
+import { red, green } from '../../createGlobalStyle';
+import {
+  StyledProgressCircle,
+  StyledCountdownContainer,
+} from './countdown-styling';
 
 export const Countdown: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
   const game: Game = useSelector(gameSelector);
   const word: WordObject = useSelector(wordsSelector);
 
-  const progress = (15 - game.time_left) * 6.67;
-  const stroke = 4;
+  // Progress circle variables
+  const progress: number = (15 - game.time_left) * 6.67;
+  const stroke: number = 4;
+  const radius: number = 26;
+  const circumference: number = radius * 2 * Math.PI;
+  const strokeDashoffset: number =
+    circumference - (progress / 100) * circumference;
   let strokeColor;
-  if (game.time_left >= 7) strokeColor = '#4df735';
+  if (game.time_left >= 7) strokeColor = green;
   else if (game.time_left > 3 && game.time_left < 7) strokeColor = 'yellow';
-  else strokeColor = '#f74848';
-
-  const radius = 26;
-  const circumference = radius * 2 * Math.PI;
-  const strokeDashoffset = circumference - (progress / 100) * circumference;
+  else strokeColor = red;
 
   useEffect(() => {
     if (
@@ -52,41 +57,37 @@ export const Countdown: FC = (): JSX.Element | null => {
     game.is_question_answered === false
   )
     return (
-      <div
-        style={{
-          gridArea: 'timer',
-          display: 'flex',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-        }}
-      >
+      <StyledCountdownContainer>
         <span style={{ width: '100%' }}>Time left:</span>
-        <div style={{ width: '100%' }}>
-          <svg height={(radius + stroke) * 2} width={(radius + stroke) * 2}>
-            <Testing
-              stroke={strokeColor}
-              fill="transparent"
-              strokeWidth={stroke}
-              strokeDasharray={circumference + ' ' + circumference}
-              style={{ strokeDashoffset }}
-              r={radius}
-              cx={radius + stroke}
-              cy={radius + stroke}
-            />
-            <text
-              x="50%"
-              y="50%"
-              text-anchor="middle"
-              alignment-baseline="middle"
-            >
-              {game.time_left}
-            </text>
-          </svg>
-        </div>
-      </div>
+        <svg height={(radius + stroke) * 2} width={(radius + stroke) * 2}>
+          <StyledProgressCircle
+            stroke={strokeColor}
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + ' ' + circumference}
+            style={{ strokeDashoffset }}
+            r={radius}
+            cx={radius + stroke}
+            cy={radius + stroke}
+          />
+          <text
+            x="50%"
+            y="50%"
+            text-anchor="middle"
+            alignment-baseline="middle"
+            fill="#fafafa"
+          >
+            {game.time_left}
+          </text>
+        </svg>
+      </StyledCountdownContainer>
     );
   else if (game.time_left === 0 && game.lives > 0)
-    return <h1 style={{ fontSize: '54' }}>TIME UP</h1>;
+    return (
+      <StyledCountdownContainer>
+        <p>TIME UP</p>
+      </StyledCountdownContainer>
+    );
   else return null;
 };
 
