@@ -23,6 +23,7 @@ html, body {
   font-weight: 400;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 `;
 

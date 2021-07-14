@@ -1,0 +1,17 @@
+{
+  "name": "kanjiquiz",
+  "version": "1.0.0",
+  "description": "An educational game to test your Japanese vocabulary",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "cd backend && npm install && npm run build",
+    "heroku-postbuild": "cd frontend && npm install && npm run build",
+    "start": "node backend/dist/server.js"
+  },
+  "keywords": [],
+  "author": "Krzysztof Kowalczyk",
+  "license": "ISC",
+  "engines": {
+    "node": "15.14.0"
+  }
+}

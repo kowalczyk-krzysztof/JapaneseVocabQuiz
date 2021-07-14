@@ -21,7 +21,27 @@ const app = express();
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cors());
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        blockAllMixedContent: [],
+        fontSrc: ["'self'", 'https:', 'data:'],
+        frameAncestors: ["'self'"],
+        frameSrc: ["'self'"],
+        imgSrc: ["'self'", 'data:'],
+        objectSrc: ["'self'", 'blob:'],
+        mediaSrc: ["'self'", 'blob:', 'data:'],
+        scriptSrc: ["'self'"],
+        scriptSrcAttr: ["'none'"],
+        styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
+        upgradeInsecureRequests: [],
+        'connect-src': ["'self'", `${process.env.MYAPP}`],
+      },
+    },
+  })
+);
 
 // Routers
 app.use('/api/v1/game', limiter, gameRouter);
