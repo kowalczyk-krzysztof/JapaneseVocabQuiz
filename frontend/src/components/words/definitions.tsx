@@ -12,7 +12,11 @@ export const Definitions: FC = (): JSX.Element => {
     return (
       <Fragment>
         {word.word.definitions.map((el: string, index: number) => {
-          return <span key={index}>{el}</span>;
+          return (
+            <span style={{ padding: '5px' }} key={index}>
+              {el}
+            </span>
+          );
         })}
       </Fragment>
     );

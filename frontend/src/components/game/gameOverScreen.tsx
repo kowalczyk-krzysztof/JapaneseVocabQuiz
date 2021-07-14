@@ -17,9 +17,9 @@ export const GameOverScreen: FC = (): JSX.Element => {
 
   return (
     <StyledGameOverStats>
-      <p>FINAL SCORE:</p>
+      <p>FINAL SCORE</p>
       <h2 style={{ color: green }}>{game.points}</h2>
-      <p>LAST WORD:</p>
+      <p>LAST WORD</p>
       <DisplayWord />
       <StyledReading>{word.word.reading}</StyledReading>
       <Definitions />

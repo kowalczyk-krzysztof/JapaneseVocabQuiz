@@ -4,6 +4,8 @@ import {
   bigMargin,
   mediumMargin,
   blackish,
+  white,
+  StyledWordContainerTemplate,
 } from '../../createGlobalStyle';
 
 export const StyledGameContainer = styled.div`
@@ -14,25 +16,47 @@ export const StyledGameContainer = styled.div`
   grid-auto-flow: row;
   grid-template-areas:
     'userstats userstats userstats'
-    'word word word'
-    'buttons buttons buttons';
+    'wordandbuttons wordandbuttons wordandbuttons'
+    'wordandbuttons wordandbuttons wordandbuttons';
   z-index: 0;
   background-color: #4b32ae;
   background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23faf7ff' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   min-height: 100vh;
 `;
 
-export const StyledUserStats = styled.div`
-  grid-area: userstats;
-  background: #6544e9;
-  border: 1px solid white;
+export const StyledWordAndButtons = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 'points timer lives';
+  grid-area: wordandbuttons;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 0.75fr;
+  grid-template-areas:
+    'word word word'
+    'buttons buttons buttons';
+`;
+
+export const StyledStartScreen = styled(StyledWordContainerTemplate)`
+  flex-wrap: wrap;
+  border-top: 0;
+  justify-content: center;
+`;
+
+export const StyledInstructionsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+  justify-content: flex-start;
+  span {
+    width: 100%;
+    padding: 5px;
+  }
+`;
+
+const StyledUserStatsBase = styled.div`
+  grid-area: userstats;
   margin-right: ${smallMargin};
   margin-left: ${smallMargin};
   margin-top: 15vh;
-
+  border: 1px solid ${white};
   padding-bottom: 5px;
   min-height: 95px;
 
@@ -51,6 +75,28 @@ export const StyledUserStats = styled.div`
   }
 `;
 
+export const StyledGameTitle = styled(StyledUserStatsBase)`
+  grid-area: userstats;
+  background: ${blackish};
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+  border-bottom: 0;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+`;
+
+export const StyledUserStats = styled(StyledUserStatsBase)`
+  grid-area: userstats;
+  background: #6544e9;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 'points timer lives';
+`;
+
 export const StyledGameOver = styled(StyledUserStats)`
   background: ${blackish};
   text-align: center;
@@ -66,6 +112,7 @@ export const StyledGameOverStats = styled.div`
   justify-content: space-between;
   p {
     margin: 0 auto;
+    user-select: none;
   }
 
   h1 {

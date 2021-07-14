@@ -4,6 +4,8 @@ import {
   red,
   lightRed,
   green,
+  white,
+  blackish,
   lightGreen,
 } from '../../createGlobalStyle';
 
@@ -17,8 +19,8 @@ export const AnswerButtonsContainer = styled.div`
 `;
 
 const StyledAnswerButton = styled(ButtonTemplate)`
-  border: 2px solid #120c24;
-  color: #120c24;
+  border: 2px solid ${blackish};
+  color: ${white};
 `;
 
 export const StyledTrueButton = styled(StyledAnswerButton)`

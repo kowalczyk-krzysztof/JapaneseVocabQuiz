@@ -38,8 +38,9 @@ export const StyledHeartDislike = styled(HeartDislike)`
 
 export const StyledPointsGained = styled.span`
   opacity: 0;
+  font-size: 1.5rem;
   color: ${green};
-  animation: ${Fade} 5s 1;
+  animation: ${Fade} 3s 1;
 `;
 
 export const StyledLivesContainer = styled.div`

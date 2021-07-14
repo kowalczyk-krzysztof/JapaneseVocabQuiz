@@ -73,8 +73,8 @@ export const Countdown: FC = (): JSX.Element | null => {
           <text
             x="50%"
             y="50%"
-            text-anchor="middle"
-            alignment-baseline="middle"
+            textAnchor="middle"
+            alignmentBaseline="middle"
             fill="#fafafa"
           >
             {game.time_left}

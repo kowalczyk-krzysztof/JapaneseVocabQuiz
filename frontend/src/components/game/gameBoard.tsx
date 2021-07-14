@@ -9,7 +9,12 @@ import { PointsContainer } from '../user/pointsContainer';
 import { LivesContainer } from '../user/livesContainer';
 import { WordInfo } from '../words/wordInfo';
 import { Countdown } from '../countdown/countdown';
-import { StyledUserStats, StyledGameOver } from './game-styling';
+import { StartGameButton } from '../startandnew/startGameButton';
+import {
+  StyledUserStats,
+  StyledGameOver,
+  StyledWordAndButtons,
+} from './game-styling';
 
 export const GameBoard: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
@@ -28,9 +33,12 @@ export const GameBoard: FC = (): JSX.Element | null => {
             <h1>GAME OVER</h1>
           </StyledGameOver>
         )}
-        <WordInfo />
-        <NewWordButton />
-        <AnswerButtons />
+        <StyledWordAndButtons>
+          <WordInfo />
+          <NewWordButton />
+          <AnswerButtons />
+          <StartGameButton />
+        </StyledWordAndButtons>
       </Fragment>
     );
   else return null;

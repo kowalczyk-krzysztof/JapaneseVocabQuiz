@@ -13,7 +13,7 @@ export interface Game {
   time_left: number;
 }
 
-const startingLives: number = 5;
+export const startingLives: number = 5;
 const startingTime: number = 15;
 
 const initialState: Game = {

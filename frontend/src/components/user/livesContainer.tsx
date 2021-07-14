@@ -21,11 +21,11 @@ export const LivesContainer: FC = (): JSX.Element | null => {
     return (
       <StyledLivesContainer>
         <StyledHeartsContainer>
-          {lives.map(() => {
-            return <StyledHeart />;
+          {lives.map((el, index) => {
+            return <StyledHeart key={index} />;
           })}
-          {lostLives.map(() => {
-            return <StyledHeartDislike />;
+          {lostLives.map((el, index) => {
+            return <StyledHeartDislike key={index} />;
           })}
         </StyledHeartsContainer>
         {game.points_gained === 0 &&

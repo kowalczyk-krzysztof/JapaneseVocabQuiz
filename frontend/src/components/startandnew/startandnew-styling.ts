@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { ButtonTemplate, blackish } from '../../createGlobalStyle';
+import { ButtonTemplate, blackish, white } from '../../createGlobalStyle';
 
 export const StyledGameStateButton = styled(ButtonTemplate)`
-  color: #ffff;
+  color: ${white};
+  width: 12rem;
+  height: 4.5rem;
   border: 2px solid #00abe7;
   background: ${blackish};
-  border: 2px solid #00abe7;
   :hover {
     background: #120c24;
   }
