@@ -18,12 +18,11 @@ export const bigMargin: string = '25%';
 export const GlobalStyle = createGlobalStyle`
 html, body {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  color: #FAFAFA;
+  color: ${white};
   font-family: "Noto Sans JP";
   font-weight: 400;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 `;
 

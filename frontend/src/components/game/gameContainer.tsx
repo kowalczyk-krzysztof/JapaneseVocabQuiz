@@ -30,7 +30,7 @@ export const GameContainer: FC = (): JSX.Element => {
     return (
       <StyledGameContainer>
         <StyledGameTitle>
-          <h1>JAPANESE WORD QUIZ</h1>
+          <h1>JAPANESE WORDS QUIZ</h1>
         </StyledGameTitle>
         <StyledWordAndButtons>
           <StyledStartScreen>
