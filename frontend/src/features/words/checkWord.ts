@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import { WordProps } from './wordsSlice';
 
-export const checkWord = async (wordToCheck: string) => {
+export const checkWord = async () => {
   const res: AxiosResponse = await axios.get(
-    `${process.env.REACT_APP_API}/api/v1/game/wordcheck/${wordToCheck}`
+    `${process.env.REACT_APP_API}/api/v1/game/wordcheck`
   );
   const wordProps: WordProps = {
     word: res.data.word,

@@ -17,7 +17,6 @@ import {
   gameSelector,
 } from '../../features/game/gameSlice';
 // Utils
-import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
 // Styling
 import {
@@ -34,8 +33,7 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     dispatch(SET_WORD_RESET());
     dispatch(SET_RESET_POINTS_GAINED());
     dispatch(SET_WORD_LOADING());
-    const generatedWord: string = await generateWord();
-    const wordObject: WordProps = await checkWord(generatedWord);
+    const wordObject: WordProps = await checkWord();
     dispatch(SET_QUESTION_UNANSWERED());
     dispatch(SET_NEW_WORD(wordObject));
     dispatch(SET_TIMER_START());

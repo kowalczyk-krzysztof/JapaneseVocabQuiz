@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
+// Utils
 import { generateRandomNumber } from '../utils/generateRandomNumber';
+import { generateWord } from '../utils/generateWord';
 import { findMatchingWords, Word } from '../utils/dictSearch';
 
 dotenv.config({ path: 'config.env' });
@@ -14,15 +16,15 @@ export const wordCheck = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const inputWord: string = req.params.word;
-    const foundWords: Word[] = findMatchingWords(inputWord);
+    const generatedWord: string = generateWord();
+    const foundWords: Word[] = findMatchingWords(generatedWord);
     let word: string;
     let wordExists: boolean;
     let reading: string;
     let definitions: string[];
     if (foundWords.length === 0) {
-      if (inputWord.length === 1) word = inputWord + '々';
-      else word = inputWord;
+      if (generatedWord.length === 1) word = generatedWord + '々';
+      else word = generatedWord;
       wordExists = false;
       reading = '';
       definitions = [];

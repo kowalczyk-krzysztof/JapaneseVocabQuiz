@@ -22,7 +22,6 @@ import {
   wordsSelector,
 } from '../../features/words/wordsSlice';
 // Utils
-import { generateWord } from '../../features/words/generateWord';
 import { checkWord } from '../../features/words/checkWord';
 // Styling
 import {
@@ -45,8 +44,7 @@ export const StartGameButton: FC = (): JSX.Element | null => {
     if (game.user_answer !== null) dispatch(SET_USER_ANSWER(null));
     if (word.word.word !== '') dispatch(SET_WORD_RESET());
     dispatch(SET_WORD_LOADING());
-    const generatedWord: string = await generateWord();
-    const wordObject: WordProps = await checkWord(generatedWord);
+    const wordObject: WordProps = await checkWord();
     dispatch(SET_NEW_WORD(wordObject));
     dispatch(SET_TIMER_START());
   };
