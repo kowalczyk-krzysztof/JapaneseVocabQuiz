@@ -11,22 +11,33 @@ import {
 } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Styling
-import { StyledFalseButton } from './answers-styling';
+import { StyledTrueButton, StyledFalseButton } from './answers-styling';
 
-export const AnswerFalseButton: FC = (): JSX.Element => {
+interface AnswerButtonProps {
+  isTrue: boolean;
+}
+
+export const AnswerButton: FC<AnswerButtonProps> = ({
+  isTrue,
+}): JSX.Element => {
   const dispatch = useDispatch();
   const word: WordObject = useSelector(wordsSelector);
   const game: Game = useSelector(gameSelector);
   const clickHandler = (): void => {
-    dispatch(SET_USER_ANSWER(false));
+    dispatch(SET_USER_ANSWER(isTrue));
     dispatch(SET_QUESTION_ANSWERED());
-    if (word.word.wordExists === false)
+    if (word.word.wordExists === isTrue)
       dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());
   };
-  return (
-    <StyledFalseButton onClick={clickHandler}>FAKE WORD</StyledFalseButton>
-  );
+  if (isTrue === true)
+    return (
+      <StyledTrueButton onClick={clickHandler}>REAL WORD</StyledTrueButton>
+    );
+  else
+    return (
+      <StyledFalseButton onClick={clickHandler}>FAKE WORD</StyledFalseButton>
+    );
 };
 
-export default AnswerFalseButton;
+export default AnswerButton;

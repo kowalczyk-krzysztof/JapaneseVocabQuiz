@@ -10,7 +10,8 @@ export interface Word {
   ];
 }
 
-export const findMatchingWords = (inputWord: string): Word[] => {
+// Search the dictionary. If inputWord is one kanji then find words containing it. If inputWord is two-kanji word then search for exact match.
+export const dictionarySearch = (inputWord: string): Word[] => {
   if (inputWord.length === 1) {
     return dictionary.filter((el: Word) => {
       return el.kanji.some((el) => el.text.includes(inputWord));

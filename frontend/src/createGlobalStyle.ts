@@ -32,7 +32,6 @@ export const ButtonTemplate = styled.button`
   width: 8rem;
   height: 4rem;
   user-select: none;
-  text-align: center;
   box-sizing: border-box;
   border-radius: 10px;
   cursor: pointer;
@@ -48,7 +47,6 @@ export const StyledWordContainerTemplate = styled.div`
   border: 1px solid ${white};
   margin-right: ${smallMargin};
   margin-left: ${smallMargin};
-  text-align: center;
   align-items: center;
   justify-content: flex-start;
 
@@ -63,7 +61,7 @@ export const StyledWordContainerTemplate = styled.div`
   }
 `;
 
-const Blah = keyframes`
+const DotAnimation = keyframes`
   50% {
     opacity: 0;
     transform: scale(0.6) translateY(10px);
@@ -76,7 +74,7 @@ export const StyledLoadingDot = styled.span`
   height: 20px;
   border-radius: 50%;
   display: inline-block;
-  animation: ${Blah} 2s infinite ease-in-out;
+  animation: ${DotAnimation} 2s infinite ease-in-out;
 `;
 
 export const StyledLoadingContainer = styled.div`

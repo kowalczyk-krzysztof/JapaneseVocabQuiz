@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Components
-import { AnswerTrueButton } from './answerTrueButton';
-import { AnswerFalseButton } from './answerFalseButton';
+import { AnswerButton } from './answerButton';
 // Styling
 import { AnswerButtonsContainer } from './answers-styling';
 
@@ -19,8 +18,10 @@ export const AnswerButtons: FC = (): JSX.Element | null => {
   )
     return (
       <AnswerButtonsContainer>
-        <AnswerTrueButton />
-        <AnswerFalseButton />
+        {/* <AnswerTrueButton />
+        <AnswerFalseButton /> */}
+        <AnswerButton isTrue={true} />
+        <AnswerButton isTrue={false} />
       </AnswerButtonsContainer>
     );
   else return null;

@@ -3,12 +3,12 @@ import dotenv from 'dotenv';
 // Utils
 import { generateRandomNumber } from '../utils/generateRandomNumber';
 import { generateWord } from '../utils/generateWord';
-import { findMatchingWords, Word } from '../utils/dictSearch';
+import { dictionarySearch, Word } from '../utils/dictionarySearch';
 
 dotenv.config({ path: 'config.env' });
 
 // @desc    Check if word exists
-// @route   GET /api/v1/game/wordcheck/:word
+// @route   GET /api/v1/game/wordcheck
 // @access  Public
 export const wordCheck = async (
   req: Request,
@@ -16,8 +16,9 @@ export const wordCheck = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    // First generate a word then search for it in dictionary. If no worda are found then return the input word (if it was one kanji, add a noma). If only one word is found then return it. If more than one word is found, generate a number between 0 and foundWords.lenght - 1 and return a word at that index
     const generatedWord: string = generateWord();
-    const foundWords: Word[] = findMatchingWords(generatedWord);
+    const foundWords: Word[] = dictionarySearch(generatedWord);
     let word: string;
     let wordExists: boolean;
     let reading: string;

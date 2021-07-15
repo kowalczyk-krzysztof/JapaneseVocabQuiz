@@ -46,8 +46,6 @@ app.use(
 // Routers
 app.use('/api/v1/game', limiter, gameRouter);
 
-const PORT = (process.env.PORT as unknown as number) || 80;
-
 // Serving react SPA
 app.use(express.static(path.join(__dirname, '/../../frontend/build')));
 app.get('*', (req, res) => {
@@ -57,6 +55,8 @@ app.get('*', (req, res) => {
 // see https://expressjs.com/en/guide/behind-proxies.html
 // app.set('trust proxy', 1);
 app.set('trust proxy', 1);
+
+const PORT = (process.env.PORT as unknown as number) || 80;
 
 app.listen(PORT, (): void => {
   if (process.env.NODE_ENV === 'development')

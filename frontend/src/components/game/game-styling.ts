@@ -80,7 +80,6 @@ export const StyledGameTitle = styled(StyledUserStatsBase)`
   background: ${blackish};
   display: flex;
   justify-content: center;
-  text-align: center;
   user-select: none;
   border-bottom: 0;
 
@@ -99,7 +98,6 @@ export const StyledUserStats = styled(StyledUserStatsBase)`
 
 export const StyledGameOver = styled(StyledUserStats)`
   background: ${blackish};
-  text-align: center;
   justify-content: center;
   display: flex;
   border-bottom: 0px;
