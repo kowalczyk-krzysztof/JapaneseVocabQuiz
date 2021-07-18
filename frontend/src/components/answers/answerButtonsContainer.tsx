@@ -6,9 +6,9 @@ import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Components
 import { AnswerButton } from './answerButton';
 // Styling
-import { AnswerButtonsContainer } from './answers-styling';
+import { StyledAnswerButtonsContainer } from './answers-styling';
 
-export const AnswerButtons: FC = (): JSX.Element | null => {
+export const AnswerButtonsContainer: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
   const word: WordObject = useSelector(wordsSelector);
   if (
@@ -17,14 +17,12 @@ export const AnswerButtons: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <AnswerButtonsContainer>
-        {/* <AnswerTrueButton />
-        <AnswerFalseButton /> */}
+      <StyledAnswerButtonsContainer data-testid={'answerbuttons'}>
         <AnswerButton isTrue={true} />
         <AnswerButton isTrue={false} />
-      </AnswerButtonsContainer>
+      </StyledAnswerButtonsContainer>
     );
   else return null;
 };
 
-export default AnswerButtons;
+export default AnswerButtonsContainer;

@@ -1,4 +1,4 @@
-import { generateWord } from '../utils/generateWord';
+import { generateWord } from './generateWord';
 
 describe('generating words', () => {
   test('generates word with .length === 2 and makes sure both of characters are included in kanjiList', () => {

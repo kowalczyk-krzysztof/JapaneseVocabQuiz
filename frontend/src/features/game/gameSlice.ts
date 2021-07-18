@@ -56,6 +56,7 @@ const gameSlice = createSlice({
       state.lives = state.lives - 1;
       if (state.lives === 0) state.isGameOver = true;
       state.lives_lost = state.lives_lost + 1;
+      state.points_gained = 0;
     },
     SET_USER_ANSWER(state, action: PayloadAction<boolean | null>) {
       state.user_answer = action.payload;

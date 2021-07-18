@@ -24,11 +24,11 @@ export const NewWordButton: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
   const word: WordObject = useSelector(wordsSelector);
 
-  const clickHandler = async (): Promise<void> => {
+  const clickHandler = (): void => {
     dispatch(SET_WORD_RESET());
     dispatch(SET_RESET_POINTS_GAINED());
-    dispatch(SET_WORD_LOADING(Date.now()));
     dispatch(SET_QUESTION_ANSWERED(false));
+    dispatch(SET_WORD_LOADING(Date.now()));
   };
   if (
     game.isGameStarted === true &&

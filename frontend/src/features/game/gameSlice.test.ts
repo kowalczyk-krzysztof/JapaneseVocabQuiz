@@ -1,4 +1,4 @@
-import { createTestStore } from '../app/store';
+import { createTestStore } from '../../app/store';
 import {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,
@@ -14,7 +14,7 @@ import {
   Game,
   startingLives,
   startingTime,
-} from '../features/game/gameSlice';
+} from './gameSlice';
 
 let store = createTestStore();
 
@@ -79,6 +79,7 @@ describe('testing game slice reducers', () => {
     state = store.getState().game;
     expect(state.lives).toEqual(startingLives - 1);
     expect(state.lives_lost).toEqual(1);
+    expect(state.points_gained).toEqual(0);
   });
   test('removing lives causing game to end', () => {
     let state: Game = store.getState().game;

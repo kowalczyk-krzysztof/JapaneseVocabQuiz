@@ -1,4 +1,4 @@
-import { dictionarySearch } from '../utils/dictionarySearch';
+import { dictionarySearch } from './dictionarySearch';
 
 describe('checking whether the word appears in dictionary or not', () => {
   test(`checks whether the non-exisitng word 田々 appears in dictionary - it shouldn't`, () => {

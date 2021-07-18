@@ -1,5 +1,5 @@
-import { DictionaryObject } from '../utils/dictionarySearch';
-import { generateWordObject, Word } from '../utils/generateWordObject';
+import { DictionaryObject } from './dictionarySearch';
+import { generateWordObject, Word } from './generateWordObject';
 
 describe('generating word object from array of words', () => {
   test('generates an object containing information about word 絵上', () => {

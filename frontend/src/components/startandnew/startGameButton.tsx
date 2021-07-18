@@ -24,7 +24,7 @@ import {
 export const StartGameButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
   const game: Game = useSelector(gameSelector);
-  const clickHandler = async (): Promise<void> => {
+  const clickHandler = (): void => {
     if (game.isGameStarted === false) dispatch(SET_GAME_STARTED(true));
     if (game.isGameOver === true) dispatch(SET_IS_GAME_OVER(false));
     dispatch(SET_RESET_LIVES());

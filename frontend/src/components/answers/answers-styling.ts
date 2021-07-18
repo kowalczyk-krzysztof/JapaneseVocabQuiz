@@ -9,7 +9,7 @@ import {
   lightGreen,
 } from '../../createGlobalStyle';
 
-export const AnswerButtonsContainer = styled.div`
+export const StyledAnswerButtonsContainer = styled.div`
   grid-area: buttons;
   display: flex;
   justify-content: center;

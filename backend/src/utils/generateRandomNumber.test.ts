@@ -1,4 +1,4 @@
-import { generateRandomNumber } from '../utils/generateRandomNumber';
+import { generateRandomNumber } from './generateRandomNumber';
 
 describe('generating random number between two values', () => {
   test('generates number between (and including) x and y', () => {

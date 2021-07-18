@@ -1,16 +1,16 @@
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
-import { createTestStore } from '../app/store';
+import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { StartGameButton } from '../components/startandnew/startGameButton';
+import { StartGameButton } from './startGameButton';
 import {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,
   Game,
   startingLives,
-} from '../features/game/gameSlice';
-import { initialState } from '../features/words/wordsSlice';
+} from '../../features/game/gameSlice';
+import { initialState } from '../../features/words/wordsSlice';
 
 let store = createTestStore();
 

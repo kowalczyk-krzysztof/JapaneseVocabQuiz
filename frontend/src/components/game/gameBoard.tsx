@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
 // Components
 import { NewWordButton } from '../startandnew/newWordButton';
-import { AnswerButtons } from '../answers/answerButtons';
+import { AnswerButtonsContainer } from '../answers/answerButtonsContainer';
 import { PointsContainer } from '../user/pointsContainer';
 import { LivesContainer } from '../user/livesContainer';
 import { WordInfo } from '../words/wordInfo';
@@ -36,7 +36,7 @@ export const GameBoard: FC = (): JSX.Element | null => {
         <StyledWordAndButtons>
           <WordInfo />
           <NewWordButton />
-          <AnswerButtons />
+          <AnswerButtonsContainer />
           <StartGameButton />
         </StyledWordAndButtons>
       </Fragment>

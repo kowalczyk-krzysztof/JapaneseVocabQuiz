@@ -1,4 +1,4 @@
-import { createTestStore } from '../app/store';
+import { createTestStore } from '../../app/store';
 import {
   SET_NEW_WORD,
   SET_WORD_RESET,
@@ -6,7 +6,7 @@ import {
   initialState,
   WordObject,
   WordProps,
-} from '../features/words/wordsSlice';
+} from './wordsSlice';
 
 let store = createTestStore();
 
