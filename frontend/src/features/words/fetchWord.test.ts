@@ -7,7 +7,7 @@ jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('fetchData', () => {
-  it('fetches new word from my API', async () => {
+  test('fetches new word from my API', async () => {
     const data: WordProps = {
       word: '勝負',
       wordExists: true,
