@@ -16,7 +16,7 @@ export const GameOverScreen: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
 
   return (
-    <StyledGameOverStats>
+    <StyledGameOverStats data-testid={'gameoverscreen'}>
       <p>FINAL SCORE</p>
       <h2 style={{ color: green }}>{game.points}</h2>
       <p>LAST WORD</p>

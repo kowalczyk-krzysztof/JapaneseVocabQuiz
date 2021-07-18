@@ -22,13 +22,13 @@ export const GameContainer: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
   if (game.isGameStarted === true)
     return (
-      <StyledGameContainer>
+      <StyledGameContainer data-testid={'gamecontainer'}>
         <GameBoard />
       </StyledGameContainer>
     );
   else
     return (
-      <StyledGameContainer>
+      <StyledGameContainer data-testid={'gamecontainer'}>
         <StyledGameTitle>
           <h1>JAPANESE WORDS QUIZ</h1>
         </StyledGameTitle>

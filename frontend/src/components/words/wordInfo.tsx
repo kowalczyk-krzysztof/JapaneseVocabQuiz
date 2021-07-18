@@ -17,7 +17,7 @@ import { DisplayWord } from './displayWord';
 import { Definitions } from './definitions';
 import { GameOverScreen } from '../game/gameOverScreen';
 // Utils
-import { checkWord } from '../../features/words/checkWord';
+import { fetchWord } from '../../features/words/fetchWord';
 // Styling
 import { StyledWordContainer, StyledReading } from './words-styling';
 
@@ -27,12 +27,19 @@ export const WordInfo: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
 
   useEffect(() => {
-    const fetchWord = async () => {
-      const wordObject: WordProps = await checkWord();
+    const fetchAndSetWord = async () => {
+      const res = await fetchWord();
+      const wordObject: WordProps = {
+        word: res.data.word,
+        wordExists: res.data.wordExists,
+        reading: res.data.reading,
+        definitions: res.data.definitions,
+      };
+
       dispatch(SET_NEW_WORD(wordObject));
       dispatch(SET_TIMER_START());
     };
-    if (word.wordLoading === true) fetchWord();
+    if (word.wordLoading === true) fetchAndSetWord();
   }, [dispatch, word.wordLoading]);
 
   if (
@@ -42,7 +49,7 @@ export const WordInfo: FC = (): JSX.Element => {
     word.wordLoading === false
   )
     return (
-      <StyledWordContainer>
+      <StyledWordContainer data-testid={'wordinfo'}>
         <DisplayWord />
         <StyledReading>{word.word.reading}</StyledReading>
         <Definitions />
@@ -50,13 +57,13 @@ export const WordInfo: FC = (): JSX.Element => {
     );
   else if (game.isGameOver === true)
     return (
-      <StyledWordContainer>
+      <StyledWordContainer data-testid={'wordinfo'}>
         <GameOverScreen />
       </StyledWordContainer>
     );
   else
     return (
-      <StyledWordContainer>
+      <StyledWordContainer data-testid={'wordinfo'}>
         <DisplayWord />
       </StyledWordContainer>
     );

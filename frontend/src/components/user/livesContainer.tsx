@@ -19,7 +19,7 @@ export const LivesContainer: FC = (): JSX.Element | null => {
   const lostLives: number[] = new Array(game.lives_lost).fill(null);
   if (game.lives > 0)
     return (
-      <StyledLivesContainer>
+      <StyledLivesContainer data-testid={'livescontainer'}>
         <StyledHeartsContainer>
           {lives.map((el, index) => {
             return <StyledHeart key={index} />;

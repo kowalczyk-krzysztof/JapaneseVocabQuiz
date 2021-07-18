@@ -57,7 +57,7 @@ export const Countdown: FC = (): JSX.Element | null => {
     game.is_question_answered === false
   )
     return (
-      <StyledCountdownContainer>
+      <StyledCountdownContainer data-testid={'countdown'}>
         <span>Time left</span>
         <svg height={(radius + stroke) * 2} width={(radius + stroke) * 2}>
           <StyledProgressCircle
@@ -84,7 +84,7 @@ export const Countdown: FC = (): JSX.Element | null => {
     );
   else if (game.time_left === 0 && game.lives > 0)
     return (
-      <StyledCountdownContainer>
+      <StyledCountdownContainer data-testid={'countdown'}>
         <p>TIME UP</p>
       </StyledCountdownContainer>
     );

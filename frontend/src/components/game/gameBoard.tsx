@@ -23,7 +23,7 @@ export const GameBoard: FC = (): JSX.Element | null => {
     return (
       <Fragment>
         {game.isGameOver === false ? (
-          <StyledUserStats>
+          <StyledUserStats data-testid={'gameboard'}>
             <Countdown />
             <PointsContainer />
             <LivesContainer />

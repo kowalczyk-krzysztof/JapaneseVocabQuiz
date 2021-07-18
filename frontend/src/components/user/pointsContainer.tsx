@@ -12,7 +12,7 @@ export const PointsContainer: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
   if (game.lives > 0)
     return (
-      <StyledPointsContainer>
+      <StyledPointsContainer data-testid={'pointscontainer'}>
         <span>Points</span>
         <span>{game.points}</span>
         {game.points_gained > 0 ? (

@@ -27,13 +27,13 @@ export const DisplayWord: FC = (): JSX.Element => {
 
   if (word.wordLoading === true && dateTime - word.loadingTime > 1)
     return (
-      <StyledLoadingContainer>
+      <StyledLoadingContainer data-testid={'loadingdots'}>
         <StyledLoadingDot />
         <StyledLoadingDot />
         <StyledLoadingDot />
       </StyledLoadingContainer>
     );
-  else return <StyledWord>{word.word.word}</StyledWord>;
+  else return <StyledWord data-testid={'word'}>{word.word.word}</StyledWord>;
 };
 
 export default DisplayWord;
