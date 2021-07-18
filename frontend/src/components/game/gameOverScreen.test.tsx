@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { GameOverScreen } from './gameOverScreen';
+import { GameOverScreen } from './GameOverScreen';
 import {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,

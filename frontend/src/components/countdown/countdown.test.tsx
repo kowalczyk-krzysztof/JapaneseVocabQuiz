@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { createTestStore } from '../../app/store';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { Countdown } from './countdown';
+import { Countdown } from './Countdown';
 import {
   SET_DECREASE_TIME,
   SET_GAME_STARTED,

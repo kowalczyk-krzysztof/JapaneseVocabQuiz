@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Components
-import { DisplayWord } from '../words/displayWord';
-import { Definitions } from '../words/definitions';
+import { DisplayWord } from '../words/DisplayWord';
+import { Definitions } from '../words/Definitions';
 // Styling
 import { green } from '../../createGlobalStyle';
 import { StyledGameOverStats } from './game-styling';

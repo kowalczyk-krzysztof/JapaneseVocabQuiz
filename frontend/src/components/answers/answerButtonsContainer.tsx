@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Components
-import { AnswerButton } from './answerButton';
+import { AnswerButton } from './AnswerButton';
 // Styling
 import { StyledAnswerButtonsContainer } from './answers-styling';
 

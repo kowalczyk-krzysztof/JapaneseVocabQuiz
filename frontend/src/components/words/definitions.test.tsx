@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { createTestStore } from '../../app/store';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { Definitions } from './definitions';
+import { Definitions } from './Definitions';
 import { SET_GAME_STARTED } from '../../features/game/gameSlice';
 import { SET_NEW_WORD, WordProps } from '../../features/words/wordsSlice';
 

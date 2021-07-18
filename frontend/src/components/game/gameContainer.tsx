@@ -7,8 +7,8 @@ import {
   startingLives,
 } from '../../features/game/gameSlice';
 // Components
-import { GameBoard } from './gameBoard';
-import { StartGameButton } from '../startandnew/startGameButton';
+import { GameBoard } from './GameBoard';
+import { StartButton } from '../startandnew/StartButton';
 // Styling
 import {
   StyledGameContainer,
@@ -45,7 +45,7 @@ export const GameContainer: FC = (): JSX.Element => {
               <span>Take care you only have {startingLives} lives</span>
             </StyledInstructionsContainer>
           </StyledStartScreen>
-          <StartGameButton />
+          <StartButton />
         </StyledWordAndButtons>
       </StyledGameContainer>
     );

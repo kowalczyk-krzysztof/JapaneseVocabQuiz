@@ -13,9 +13,9 @@ import {
   SET_TIMER_START,
 } from '../../features/game/gameSlice';
 // Components
-import { DisplayWord } from './displayWord';
-import { Definitions } from './definitions';
-import { GameOverScreen } from '../game/gameOverScreen';
+import { DisplayWord } from './DisplayWord';
+import { Definitions } from './Definitions';
+import { GameOverScreen } from '../game/GameOverScreen';
 // Utils
 import { fetchWord } from '../../features/words/fetchWord';
 // Styling

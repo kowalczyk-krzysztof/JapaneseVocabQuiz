@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { LivesContainer } from './livesContainer';
+import { LivesContainer } from './LivesContainer';
 import { SET_GAME_STARTED, startingLives } from '../../features/game/gameSlice';
 
 let store = createTestStore();

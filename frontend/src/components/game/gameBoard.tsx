@@ -3,13 +3,13 @@ import React, { FC, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
 // Components
-import { NewWordButton } from '../startandnew/newWordButton';
-import { AnswerButtonsContainer } from '../answers/answerButtonsContainer';
-import { PointsContainer } from '../user/pointsContainer';
-import { LivesContainer } from '../user/livesContainer';
-import { WordInfo } from '../words/wordInfo';
-import { Countdown } from '../countdown/countdown';
-import { StartGameButton } from '../startandnew/startGameButton';
+import { NewWordButton } from '../startandnew/NewWordButton';
+import { AnswerButtonsContainer } from '../answers/AnswerButtonsContainer';
+import { PointsContainer } from '../user/PointsContainer';
+import { LivesContainer } from '../user/LivesContainer';
+import { WordInfo } from '../words/WordInfo';
+import { Countdown } from '../countdown/Countdown';
+import { StartButton } from '../startandnew/StartButton';
 import {
   StyledUserStats,
   StyledGameOver,
@@ -37,7 +37,7 @@ export const GameBoard: FC = (): JSX.Element | null => {
           <WordInfo />
           <NewWordButton />
           <AnswerButtonsContainer />
-          <StartGameButton />
+          <StartButton />
         </StyledWordAndButtons>
       </Fragment>
     );

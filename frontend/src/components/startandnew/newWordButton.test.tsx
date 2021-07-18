@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { NewWordButton } from './newWordButton';
+import { NewWordButton } from './NewWordButton';
 import {
   SET_GAME_STARTED,
   SET_QUESTION_ANSWERED,

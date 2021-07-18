@@ -21,7 +21,7 @@ import {
   StyledStartAndNewButtonContainer,
 } from './startandnew-styling';
 
-export const StartGameButton: FC = (): JSX.Element | null => {
+export const StartButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
   const game: Game = useSelector(gameSelector);
   const clickHandler = (): void => {
@@ -48,4 +48,4 @@ export const StartGameButton: FC = (): JSX.Element | null => {
   else return null;
 };
 
-export default StartGameButton;
+export default StartButton;

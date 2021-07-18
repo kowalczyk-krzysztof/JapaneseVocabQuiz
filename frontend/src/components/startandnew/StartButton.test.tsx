@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { StartGameButton } from './startGameButton';
+import { StartButton } from './StartButton';
 import {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,
@@ -24,7 +24,7 @@ describe('testing start game button', () => {
     expect(state).toEqual(false);
     const { queryByTestId } = render(
       <Provider store={store}>
-        <StartGameButton />
+        <StartButton />
       </Provider>
     );
     expect(queryByTestId('startbutton')).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe('testing start game button', () => {
     expect(state.isGameStarted).toEqual(true);
     const { queryByTestId } = render(
       <Provider store={store}>
-        <StartGameButton />
+        <StartButton />
       </Provider>
     );
     expect(queryByTestId('startbutton')).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe('testing start game button', () => {
     expect(state.game.isGameStarted).toEqual(false);
     const { queryByTestId } = render(
       <Provider store={store}>
-        <StartGameButton />
+        <StartButton />
       </Provider>
     );
     expect(queryByTestId('startbutton')).toBeInTheDocument();
