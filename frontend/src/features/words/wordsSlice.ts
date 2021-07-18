@@ -13,7 +13,7 @@ export interface WordObject {
   wordLoading: boolean;
   loadingTime: number;
 }
-const initialState: WordObject = {
+export const initialState: WordObject = {
   word: {
     word: '',
     wordExists: false,
@@ -42,9 +42,9 @@ const wordsSlice = createSlice({
       state.word.reading = '';
       state.word.definitions = [''];
     },
-    SET_WORD_LOADING(state) {
+    SET_WORD_LOADING(state, action: PayloadAction<number>) {
       state.wordLoading = true;
-      state.loadingTime = Date.now();
+      state.loadingTime = action.payload;
     },
   },
 });

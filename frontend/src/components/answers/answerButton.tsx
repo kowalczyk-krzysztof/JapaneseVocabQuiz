@@ -25,7 +25,7 @@ export const AnswerButton: FC<AnswerButtonProps> = ({
   const game: Game = useSelector(gameSelector);
   const clickHandler = (): void => {
     dispatch(SET_USER_ANSWER(isTrue));
-    dispatch(SET_QUESTION_ANSWERED());
+    dispatch(SET_QUESTION_ANSWERED(true));
     if (word.word.wordExists === isTrue)
       dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());

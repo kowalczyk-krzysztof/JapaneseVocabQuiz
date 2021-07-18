@@ -2,22 +2,17 @@ import React, { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  SET_NEW_WORD,
   SET_WORD_LOADING,
   SET_WORD_RESET,
-  WordProps,
   wordsSelector,
   WordObject,
 } from '../../features/words/wordsSlice';
 import {
-  SET_QUESTION_UNANSWERED,
-  SET_TIMER_START,
+  SET_QUESTION_ANSWERED,
   SET_RESET_POINTS_GAINED,
   Game,
   gameSelector,
 } from '../../features/game/gameSlice';
-// Utils
-import { checkWord } from '../../features/words/checkWord';
 // Styling
 import {
   StyledGameStateButton,
@@ -32,11 +27,8 @@ export const NewWordButton: FC = (): JSX.Element | null => {
   const clickHandler = async (): Promise<void> => {
     dispatch(SET_WORD_RESET());
     dispatch(SET_RESET_POINTS_GAINED());
-    dispatch(SET_WORD_LOADING());
-    const wordObject: WordProps = await checkWord();
-    dispatch(SET_QUESTION_UNANSWERED());
-    dispatch(SET_NEW_WORD(wordObject));
-    dispatch(SET_TIMER_START());
+    dispatch(SET_WORD_LOADING(Date.now()));
+    dispatch(SET_QUESTION_ANSWERED(false));
   };
   if (
     game.isGameStarted === true &&
@@ -46,7 +38,10 @@ export const NewWordButton: FC = (): JSX.Element | null => {
   )
     return (
       <StyledStartAndNewButtonContainer>
-        <StyledGameStateButton onClick={clickHandler}>
+        <StyledGameStateButton
+          onClick={clickHandler}
+          data-testid={'newwordbutton'}
+        >
           NEW WORD
         </StyledGameStateButton>
       </StyledStartAndNewButtonContainer>

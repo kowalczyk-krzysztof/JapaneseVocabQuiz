@@ -14,9 +14,9 @@ export interface Game {
 }
 
 export const startingLives: number = 5;
-const startingTime: number = 15;
+export const startingTime: number = 15;
 
-const initialState: Game = {
+export const initialState: Game = {
   isGameStarted: false,
   isGameOver: false,
   points: 0,
@@ -32,11 +32,11 @@ const gameSlice = createSlice({
   name: `game`,
   initialState,
   reducers: {
-    SET_GAME_STARTED(state) {
-      state.isGameStarted = true;
+    SET_GAME_STARTED(state, action: PayloadAction<boolean>) {
+      state.isGameStarted = action.payload;
     },
-    SET_GAME_NOT_OVER(state) {
-      state.isGameOver = false;
+    SET_IS_GAME_OVER(state, action: PayloadAction<boolean>) {
+      state.isGameOver = action.payload;
     },
     SET_RESET_POINTS(state) {
       state.points = 0;
@@ -60,11 +60,8 @@ const gameSlice = createSlice({
     SET_USER_ANSWER(state, action: PayloadAction<boolean | null>) {
       state.user_answer = action.payload;
     },
-    SET_QUESTION_ANSWERED(state) {
-      state.is_question_answered = true;
-    },
-    SET_QUESTION_UNANSWERED(state) {
-      state.is_question_answered = false;
+    SET_QUESTION_ANSWERED(state, action: PayloadAction<boolean>) {
+      state.is_question_answered = action.payload;
     },
     SET_TIMER_START(state) {
       state.time_left = startingTime;
@@ -85,14 +82,13 @@ export const gameSelector = (state: RootState) => state.game;
 // Actions and reducer
 export const {
   SET_GAME_STARTED,
-  SET_GAME_NOT_OVER,
+  SET_IS_GAME_OVER,
   SET_POINTS,
   SET_RESET_POINTS_GAINED,
   SET_RESET_LIVES,
   SET_REMOVE_LIFE,
   SET_USER_ANSWER,
   SET_QUESTION_ANSWERED,
-  SET_QUESTION_UNANSWERED,
   SET_RESET_POINTS,
   SET_TIMER_START,
   SET_DECREASE_TIME,
