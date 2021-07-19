@@ -46,5 +46,3 @@ export const AnswerButton: FC<AnswerButtonProps> = ({
       </StyledFalseButton>
     );
 };
-
-export default AnswerButton;

@@ -26,5 +26,3 @@ export const GameOverScreen: FC = (): JSX.Element => {
     </StyledGameOverStats>
   );
 };
-
-export default GameOverScreen;

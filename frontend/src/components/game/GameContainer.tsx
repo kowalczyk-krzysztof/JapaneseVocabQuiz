@@ -50,5 +50,3 @@ export const GameContainer: FC = (): JSX.Element => {
       </StyledGameContainer>
     );
 };
-
-export default GameContainer;

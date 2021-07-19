@@ -39,5 +39,3 @@ export const LivesContainer: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default LivesContainer;

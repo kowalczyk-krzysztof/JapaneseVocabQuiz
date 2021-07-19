@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';

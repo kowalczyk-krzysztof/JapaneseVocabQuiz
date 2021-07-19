@@ -43,5 +43,3 @@ export const GameBoard: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default GameBoard;

@@ -22,5 +22,3 @@ export const PointsContainer: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default PointsContainer;

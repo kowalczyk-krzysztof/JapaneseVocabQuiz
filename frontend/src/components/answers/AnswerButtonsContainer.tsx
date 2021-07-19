@@ -24,5 +24,3 @@ export const AnswerButtonsContainer: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default AnswerButtonsContainer;

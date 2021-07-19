@@ -90,5 +90,3 @@ export const Countdown: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default Countdown;

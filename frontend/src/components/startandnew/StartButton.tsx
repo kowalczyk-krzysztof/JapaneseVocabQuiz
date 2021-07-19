@@ -47,5 +47,3 @@ export const StartButton: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default StartButton;

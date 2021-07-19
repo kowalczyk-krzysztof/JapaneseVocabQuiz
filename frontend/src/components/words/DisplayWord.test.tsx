@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
 import { createTestStore } from '../../app/store';
 import { render, act, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';

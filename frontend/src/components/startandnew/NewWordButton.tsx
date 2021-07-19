@@ -48,5 +48,3 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     );
   else return null;
 };
-
-export default NewWordButton;
