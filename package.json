@@ -5,13 +5,14 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "cd backend && npm install && npm run build",
-    "heroku-postbuild": "cd frontend && npm install && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "start": "node backend/dist/server.js"
   },
   "keywords": [],
   "author": "Krzysztof Kowalczyk",
   "license": "ISC",
   "engines": {
-    "node": "16.5.0"
+    "node": "16.5.0",
+    "npm": "7.20.0"
   }
 }
