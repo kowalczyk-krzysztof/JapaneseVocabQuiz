@@ -21,6 +21,7 @@ html, body {
   color: ${white};
   font-family: "Noto Sans JP";
   font-weight: 400;
+  font-display: swap;
   margin: 0;
   padding: 0;
   text-align: center;
