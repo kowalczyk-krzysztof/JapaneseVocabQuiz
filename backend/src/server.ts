@@ -47,9 +47,6 @@ app.use(
 app.use('/api/v1/game', limiter, gameRouter);
 
 // Serving react SPA
-app.use(function (req, res, next) {
-  res.set('Cache-control', 'public, max-age=2592000');
-});
 app.use(express.static(path.join(__dirname, '/../../frontend/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/../../frontend/build/index.html'));
