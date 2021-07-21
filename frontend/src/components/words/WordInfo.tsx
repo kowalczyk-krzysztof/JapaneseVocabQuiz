@@ -29,15 +29,17 @@ export const WordInfo: FC = (): JSX.Element => {
   useEffect(() => {
     const fetchAndSetWord = async () => {
       const res = await fetchWord();
-      const wordObject: WordProps = {
-        word: res.data.word,
-        wordExists: res.data.wordExists,
-        reading: res.data.reading,
-        definitions: res.data.definitions,
-      };
+      if (res) {
+        const wordObject: WordProps = {
+          word: res.data.word,
+          wordExists: res.data.wordExists,
+          reading: res.data.reading,
+          definitions: res.data.definitions,
+        };
 
-      dispatch(SET_NEW_WORD(wordObject));
-      dispatch(SET_TIMER_START());
+        dispatch(SET_NEW_WORD(wordObject));
+        dispatch(SET_TIMER_START());
+      }
     };
     if (word.wordLoading === true) fetchAndSetWord();
   }, [dispatch, word.wordLoading]);
