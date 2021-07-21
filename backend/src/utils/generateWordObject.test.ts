@@ -17,9 +17,9 @@ describe('generating word object from array of words', () => {
     const inputWord: string = '輝石';
     const words: DictionaryObject[] = [
       {
-        kanji: [{ text: '輝石' }],
-        kana: [{ text: 'きせき' }],
-        sense: [{ gloss: [{ text: 'pyroxene' }, { text: 'augite' }] }],
+        kanji: ['輝石'],
+        kana: ['きせき'],
+        definition: [['pyroxene', 'augite']],
       },
     ];
     const expectedResult: Word = {
@@ -34,27 +34,21 @@ describe('generating word object from array of words', () => {
     const inputWord: string = '勝';
     const words: DictionaryObject[] = [
       {
-        kanji: [{ text: '自負' }],
-        kana: [{ text: 'じふ' }],
-        sense: [
-          {
-            gloss: [
-              { text: 'pride' },
-              { text: 'self-confidence' },
-              { text: 'thinking highly of oneself' },
-              { text: `being proud of one's abilities or achievements` },
-            ],
-          },
+        kanji: ['自負'],
+        kana: ['じふ'],
+        definition: [
+          [
+            'pride',
+            'self-confidence',
+            'thinking highly of oneself',
+            `being proud of one's abilities or achievements`,
+          ],
         ],
       },
       {
-        kanji: [{ text: '勝負' }],
-        kana: [{ text: 'しょうぶ' }],
-        sense: [
-          {
-            gloss: [{ text: 'victory or defeat' }],
-          },
-        ],
+        kanji: ['勝負'],
+        kana: ['しょうぶ'],
+        definition: [['victory or defeat']],
       },
     ];
     const index = jest.fn().mockReturnValue(1);

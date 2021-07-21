@@ -26,20 +26,16 @@ export const generateWordObject = (
   } else if (words.length > 1) {
     const indexOfWord: number = index!(0, words.length - 1);
     return {
-      word: words[indexOfWord].kanji[0].text,
+      word: words[indexOfWord].kanji[0],
       wordExists: true,
-      reading: words[indexOfWord].kana[0].text,
-      definitions: words[indexOfWord].sense[0].gloss.map(
-        (el: { text: string }) => el.text
-      ),
+      reading: words[indexOfWord].kana[0],
+      definitions: words[indexOfWord].definition[0].map((el: string) => el),
     };
   } else
     return {
-      word: words[0].kanji[0].text,
+      word: words[0].kanji[0],
       wordExists: true,
-      reading: words[0].kana[0].text,
-      definitions: words[0].sense[0].gloss.map(
-        (el: { text: string }) => el.text
-      ),
+      reading: words[0].kana[0],
+      definitions: words[0].definition[0].map((el: string) => el),
     };
 };
