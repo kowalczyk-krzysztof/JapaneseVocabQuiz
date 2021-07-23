@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -15,7 +15,6 @@ import {
 // Components
 import { DisplayWord } from './DisplayWord';
 import { Definitions } from './Definitions';
-import { GameOverScreen } from '../game/GameOverScreen';
 // Utils
 import { fetchWord } from '../../features/words/fetchWord';
 // Styling
@@ -55,12 +54,6 @@ export const WordInfo: FC = (): JSX.Element => {
         <DisplayWord />
         <StyledReading>{word.word.reading}</StyledReading>
         <Definitions />
-      </StyledWordContainer>
-    );
-  else if (game.isGameOver === true)
-    return (
-      <StyledWordContainer data-testid={'wordinfo'}>
-        <GameOverScreen />
       </StyledWordContainer>
     );
   else
