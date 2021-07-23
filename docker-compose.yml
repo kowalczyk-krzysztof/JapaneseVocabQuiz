@@ -1,0 +1,18 @@
+version: '3'
+services:
+  jpquiz-react:
+    image: krzysztof893/jpquiz-react:jpquiz
+    stdin_open: true
+    ports:
+      - '80:80'
+    networks:
+      - jpquiz
+  jpquiz-api:
+    image: krzysztof893/jpquiz-api:jpquiz
+    ports:
+      - '8080:8080'
+    networks:
+      - jpquiz
+networks:
+  jpquiz:
+    driver: bridge
