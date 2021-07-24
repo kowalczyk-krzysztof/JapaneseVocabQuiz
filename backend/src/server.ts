@@ -18,9 +18,11 @@ const limiter = rateLimit({
 });
 
 const app = express();
+// Cors has to be actually first
+app.use(cors());
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
-app.use(cors());
+
 app.use(
   helmet({
     contentSecurityPolicy: {
@@ -56,11 +58,10 @@ app.get('*', (req, res) => {
 // app.set('trust proxy', 1);
 app.set('trust proxy', 1);
 
-const PORT = (process.env.PORT as unknown as number) || 80;
+const PORT = (process.env.PORT as unknown as number) || 8080;
 
 export const server = app.listen(PORT, (): void => {
-  if (process.env.NODE_ENV === 'development')
-    console.log(
-      `Server is up and running @ http://localhost:${PORT} in ${process.env.NODE_ENV} mode`
-    );
+  console.log(
+    `Server is up and running @ http://localhost:${PORT} in ${process.env.NODE_ENV} mode`
+  );
 });
