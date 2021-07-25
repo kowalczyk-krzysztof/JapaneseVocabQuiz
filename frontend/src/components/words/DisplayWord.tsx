@@ -33,7 +33,7 @@ export const DisplayWord: FC = (): JSX.Element => {
         <StyledLoadingDot />
       </StyledLoadingContainer>
     );
-  else return <StyledWord data-testid={'word'}>{word.word.word}</StyledWord>;
+  return <StyledWord data-testid={'word'}>{word.word.word}</StyledWord>;
 };
 
 export default DisplayWord;
