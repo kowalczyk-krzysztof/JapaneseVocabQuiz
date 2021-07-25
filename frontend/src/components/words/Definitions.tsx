@@ -24,7 +24,7 @@ export const Definitions: FC = (): JSX.Element => {
         })}
       </Fragment>
     );
-  else return <StyledFakeWord>FAKE WORD</StyledFakeWord>;
+  return <StyledFakeWord>FAKE WORD</StyledFakeWord>;
 };
 
 export default Definitions;

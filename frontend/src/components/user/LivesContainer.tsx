@@ -12,31 +12,30 @@ import {
   StyledHeartsContainer,
 } from './user-stats-styling';
 
-export const LivesContainer: FC = (): JSX.Element | null => {
+export const LivesContainer: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
   const game: Game = useSelector(gameSelector);
   const lives: number[] = new Array(game.lives).fill(null);
   const lostLives: number[] = new Array(game.lives_lost).fill(null);
-  if (game.lives > 0)
-    return (
-      <StyledLivesContainer data-testid={'livescontainer'}>
-        <StyledHeartsContainer>
-          {lives.map((el, index) => {
-            return <StyledHeart key={index} />;
-          })}
-          {lostLives.map((el, index) => {
-            return <StyledHeartDislike key={index} />;
-          })}
-        </StyledHeartsContainer>
 
-        {game.points_gained === 0 &&
-        game.is_question_answered === true &&
-        word.wordLoading === false ? (
-          <StyledHeartsContainer>
-            <StyledDyingHeart />
-          </StyledHeartsContainer>
-        ) : null}
-      </StyledLivesContainer>
-    );
-  else return null;
+  return (
+    <StyledLivesContainer data-testid={'livescontainer'}>
+      <StyledHeartsContainer>
+        {lives.map((el, index) => {
+          return <StyledHeart key={index} />;
+        })}
+        {lostLives.map((el, index) => {
+          return <StyledHeartDislike key={index} />;
+        })}
+      </StyledHeartsContainer>
+
+      {game.points_gained === 0 &&
+      game.is_question_answered === true &&
+      word.wordLoading === false ? (
+        <StyledHeartsContainer>
+          <StyledDyingHeart />
+        </StyledHeartsContainer>
+      ) : null}
+    </StyledLivesContainer>
+  );
 };

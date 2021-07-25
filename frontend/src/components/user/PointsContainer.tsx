@@ -8,17 +8,16 @@ import {
   StyledPointsContainer,
 } from './user-stats-styling';
 
-export const PointsContainer: FC = (): JSX.Element | null => {
+export const PointsContainer: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
-  if (game.lives > 0)
-    return (
-      <StyledPointsContainer data-testid={'pointscontainer'}>
-        <span>Points</span>
-        <span>{game.points}</span>
-        {game.points_gained > 0 ? (
-          <StyledPointsGained> +{game.points_gained}</StyledPointsGained>
-        ) : null}
-      </StyledPointsContainer>
-    );
-  else return null;
+
+  return (
+    <StyledPointsContainer data-testid={'pointscontainer'}>
+      <span>Points</span>
+      <span>{game.points}</span>
+      {game.points_gained > 0 ? (
+        <StyledPointsGained> +{game.points_gained}</StyledPointsGained>
+      ) : null}
+    </StyledPointsContainer>
+  );
 };

@@ -57,12 +57,11 @@ export const WordInfo: FC = (): JSX.Element => {
         <Definitions />
       </StyledWordContainer>
     );
-  else
-    return (
-      <StyledWordContainer data-testid={'wordinfo'}>
-        <DisplayWord />
-      </StyledWordContainer>
-    );
+  return (
+    <StyledWordContainer data-testid={'wordinfo'}>
+      <DisplayWord />
+    </StyledWordContainer>
+  );
 };
 
 export default WordInfo;

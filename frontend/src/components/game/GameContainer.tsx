@@ -13,5 +13,5 @@ export const GameContainer: FC = (): JSX.Element => {
     return <GameBoard />;
   else if (game.isGameStarted === true && game.isGameOver === true)
     return <GameOverScreen />;
-  else return <StartGameScreen />;
+  return <StartGameScreen />;
 };
