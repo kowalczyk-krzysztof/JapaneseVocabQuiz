@@ -1,6 +1,9 @@
 {
   "short_name": "Japanese",
   "name": "Japanese Words Quiz",
+  "description": "Educational quiz. Generate a two-kanji word and guess if it's a real Japanese word.",
+  "lang": "en-GB",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "manifest-icon-192.png",
