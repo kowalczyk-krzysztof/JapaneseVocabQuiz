@@ -50,6 +50,9 @@ export const StyledButtons = styled.div`
   justify-content: center;
   gap: 5vh;
   padding: 1rem;
+  @media only screen and (max-width: 480px) {
+    gap: 2vh;
+  }
 `;
 
 export const StyledInstructionsContainer = styled.div`
@@ -68,7 +71,7 @@ export const StyledInstructionsContainer = styled.div`
 export const StyledUserStatsBase = styled.div`
   grid-area: userstats;
   user-select: none;
-  max-height: 100px;
+  height: 100px;
   h1 {
     font-size: 1.5rem;
   }
