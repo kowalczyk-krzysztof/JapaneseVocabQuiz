@@ -24,14 +24,14 @@ html, body {
   font-display: swap;
   margin: 0;
   padding: 0;
-  text-align: center; 
-}
-body {
-background-color: #4b32ae;
+  text-align: center;
+  background-color: #4b32ae;
   background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23faf7ff' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-`;
 
+
+
+`;
 export const StyledWordContainer = styled.div`
   grid-area: word;
   display: flex;
@@ -42,9 +42,11 @@ export const StyledWordContainer = styled.div`
 
 const DotAnimation = keyframes`
   50% {
-    opacity: 0;
+     opacity: 0;
     transform: scale(0.6) translateY(10px);
   }
+   
+
 `;
 
 export const StyledLoadingDot = styled.span`
