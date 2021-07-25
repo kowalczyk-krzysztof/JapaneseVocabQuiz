@@ -10,7 +10,8 @@ export const StyledReading = styled.span`
 `;
 
 export const StyledWordContainer = styled(StyledWordContainerTemplate)`
-  border-top: 0px;
+  border-top: 0;
+  border-bottom: 0;
 `;
 
 export const StyledWord = styled.h1`

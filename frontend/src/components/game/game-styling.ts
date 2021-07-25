@@ -8,7 +8,7 @@ import {
   StyledWordContainerTemplate,
 } from '../../createGlobalStyle';
 
-export const StyledGameContainer = styled.div`
+export const StyledScreen = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.5fr 2fr 0.75fr;
@@ -34,9 +34,35 @@ export const StyledWordAndButtons = styled.div`
     'buttons buttons buttons';
 `;
 
+export const StyledButtons = styled.div`
+  grid-area: buttons;
+  display: flex;
+  justify-content: center;
+  background: ${blackish};
+  flex-wrap: wrap;
+  margin-right: ${smallMargin};
+  margin-left: ${smallMargin};
+  gap: 5vh;
+  max-height: 4rem;
+  padding: 1rem;
+  border: 1px solid ${white};
+  border-top: none;
+
+  @media only screen and (min-width: 480px) {
+    margin-right: ${mediumMargin};
+    margin-left: ${mediumMargin};
+  }
+
+  @media only screen and (min-width: 992px) {
+    margin-right: ${bigMargin};
+    margin-left: ${bigMargin};
+  }
+`;
+
 export const StyledStartScreen = styled(StyledWordContainerTemplate)`
   flex-wrap: wrap;
   border-top: 0;
+  border-bottom: 0;
   justify-content: center;
 `;
 

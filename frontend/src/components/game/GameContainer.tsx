@@ -7,26 +7,26 @@ import { GameBoard } from './GameBoard';
 import { StartGameScreen } from './StartGameScreen';
 import { GameOverScreen } from './GameOverScreen';
 // Styling
-import { StyledGameContainer } from './game-styling';
+import { StyledScreen } from './game-styling';
 
 export const GameContainer: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
   if (game.isGameStarted === true && game.isGameOver === false)
     return (
-      <StyledGameContainer data-testid={'gamecontainer'}>
+      <StyledScreen data-testid={'gamecontainer'}>
         <GameBoard />
-      </StyledGameContainer>
+      </StyledScreen>
     );
   else if (game.isGameStarted === true && game.isGameOver === true)
     return (
-      <StyledGameContainer data-testid={'gamecontainer'}>
+      <StyledScreen data-testid={'gamecontainer'}>
         <GameOverScreen />
-      </StyledGameContainer>
+      </StyledScreen>
     );
   else
     return (
-      <StyledGameContainer data-testid={'gamecontainer'}>
+      <StyledScreen data-testid={'gamecontainer'}>
         <StartGameScreen />
-      </StyledGameContainer>
+      </StyledScreen>
     );
 };

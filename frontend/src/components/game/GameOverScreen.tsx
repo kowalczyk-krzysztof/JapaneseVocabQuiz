@@ -12,6 +12,7 @@ import {
   StyledGameOverStats,
   StyledGameOver,
   StyledWordAndButtons,
+  StyledButtons,
 } from './game-styling';
 import { StyledReading, StyledWordContainer } from '../words/words-styling';
 import { StartButton } from '../startandnew/StartButton';
@@ -36,7 +37,9 @@ export const GameOverScreen: FC = (): JSX.Element => {
             <Definitions />
           </StyledGameOverStats>
         </StyledWordContainer>
-        <StartButton />
+        <StyledButtons>
+          <StartButton />
+        </StyledButtons>
       </StyledWordAndButtons>
     </Fragment>
   );

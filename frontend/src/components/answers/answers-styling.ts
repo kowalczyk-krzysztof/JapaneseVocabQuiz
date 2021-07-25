@@ -5,21 +5,12 @@ import {
   lightRed,
   green,
   white,
-  blackish,
   lightGreen,
 } from '../../createGlobalStyle';
 
-export const StyledAnswerButtonsContainer = styled.div`
-  grid-area: buttons;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  gap: 5vh;
-`;
-
 const StyledAnswerButton = styled(ButtonTemplate)`
-  border: 2px solid ${blackish};
+  margin-top: 0;
+  border: 2px solid ${white};
   color: ${white};
 `;
 

@@ -8,7 +8,11 @@ import { WordInfo } from '../words/WordInfo';
 import { Countdown } from '../countdown/Countdown';
 import { StartButton } from '../startandnew/StartButton';
 // Styling
-import { StyledUserStats, StyledWordAndButtons } from './game-styling';
+import {
+  StyledUserStats,
+  StyledWordAndButtons,
+  StyledButtons,
+} from './game-styling';
 
 export const GameBoard: FC = (): JSX.Element => {
   return (
@@ -20,9 +24,11 @@ export const GameBoard: FC = (): JSX.Element => {
       </StyledUserStats>
       <StyledWordAndButtons>
         <WordInfo />
-        <NewWordButton />
-        <AnswerButtonsContainer />
-        <StartButton />
+        <StyledButtons>
+          <NewWordButton />
+          <AnswerButtonsContainer />
+          <StartButton />
+        </StyledButtons>
       </StyledWordAndButtons>
     </Fragment>
   );

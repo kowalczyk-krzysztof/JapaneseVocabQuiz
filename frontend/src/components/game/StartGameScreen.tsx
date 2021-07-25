@@ -10,6 +10,7 @@ import {
   StyledStartScreen,
   StyledGameTitle,
   StyledInstructionsContainer,
+  StyledButtons,
 } from './game-styling';
 
 export const StartGameScreen: FC = (): JSX.Element => {
@@ -29,7 +30,9 @@ export const StartGameScreen: FC = (): JSX.Element => {
             <span>Take care you only have {startingLives} lives</span>
           </StyledInstructionsContainer>
         </StyledStartScreen>
-        <StartButton />
+        <StyledButtons>
+          <StartButton />
+        </StyledButtons>
       </StyledWordAndButtons>
     </Fragment>
   );

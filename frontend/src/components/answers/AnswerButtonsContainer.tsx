@@ -1,12 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Components
 import { AnswerButton } from './AnswerButton';
-// Styling
-import { StyledAnswerButtonsContainer } from './answers-styling';
 
 export const AnswerButtonsContainer: FC = (): JSX.Element | null => {
   const game: Game = useSelector(gameSelector);
@@ -17,10 +15,10 @@ export const AnswerButtonsContainer: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <StyledAnswerButtonsContainer data-testid={'answerbuttons'}>
+      <Fragment data-testid={'answerbuttons'}>
         <AnswerButton isTrue={true} />
         <AnswerButton isTrue={false} />
-      </StyledAnswerButtonsContainer>
+      </Fragment>
     );
   else return null;
 };

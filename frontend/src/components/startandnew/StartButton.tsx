@@ -16,10 +16,7 @@ import {
   SET_WORD_LOADING,
 } from '../../features/words/wordsSlice';
 // Styling
-import {
-  StyledGameStateButton,
-  StyledStartAndNewButtonContainer,
-} from './startandnew-styling';
+import { StyledGameStateButton } from './startandnew-styling';
 
 export const StartButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
@@ -36,14 +33,9 @@ export const StartButton: FC = (): JSX.Element | null => {
   };
   if (game.isGameOver === true || game.isGameStarted === false)
     return (
-      <StyledStartAndNewButtonContainer>
-        <StyledGameStateButton
-          onClick={clickHandler}
-          data-testid={'startbutton'}
-        >
-          START
-        </StyledGameStateButton>
-      </StyledStartAndNewButtonContainer>
+      <StyledGameStateButton onClick={clickHandler} data-testid={'startbutton'}>
+        START
+      </StyledGameStateButton>
     );
   else return null;
 };

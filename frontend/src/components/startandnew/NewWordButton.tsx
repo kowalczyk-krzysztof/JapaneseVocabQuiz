@@ -14,10 +14,7 @@ import {
   gameSelector,
 } from '../../features/game/gameSlice';
 // Styling
-import {
-  StyledGameStateButton,
-  StyledStartAndNewButtonContainer,
-} from './startandnew-styling';
+import { StyledGameStateButton } from './startandnew-styling';
 
 export const NewWordButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
@@ -37,14 +34,12 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     word.wordLoading === false
   )
     return (
-      <StyledStartAndNewButtonContainer>
-        <StyledGameStateButton
-          onClick={clickHandler}
-          data-testid={'newwordbutton'}
-        >
-          NEW WORD
-        </StyledGameStateButton>
-      </StyledStartAndNewButtonContainer>
+      <StyledGameStateButton
+        onClick={clickHandler}
+        data-testid={'newwordbutton'}
+      >
+        NEW WORD
+      </StyledGameStateButton>
     );
   else return null;
 };
