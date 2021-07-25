@@ -18,7 +18,8 @@ import { Definitions } from './Definitions';
 // Utils
 import { fetchWord } from '../../features/words/fetchWord';
 // Styling
-import { StyledWordContainer, StyledReading } from './words-styling';
+import { StyledReading } from './words-styling';
+import { StyledWordContainer } from '../../createGlobalStyle';
 
 export const WordInfo: FC = (): JSX.Element => {
   const dispatch = useDispatch();

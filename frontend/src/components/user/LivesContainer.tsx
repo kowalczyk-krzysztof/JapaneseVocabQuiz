@@ -5,10 +5,10 @@ import { gameSelector, Game } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Styling
 import {
-  StyledLivesContainer,
   StyledHeart,
   StyledHeartDislike,
   StyledDyingHeart,
+  StyledLivesContainer,
   StyledHeartsContainer,
 } from './user-stats-styling';
 
@@ -28,6 +28,7 @@ export const LivesContainer: FC = (): JSX.Element | null => {
             return <StyledHeartDislike key={index} />;
           })}
         </StyledHeartsContainer>
+
         {game.points_gained === 0 &&
         game.is_question_answered === true &&
         word.wordLoading === false ? (

@@ -7,14 +7,14 @@ import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 import { DisplayWord } from '../words/DisplayWord';
 import { Definitions } from '../words/Definitions';
 // Styling
-import { green } from '../../createGlobalStyle';
+import { green, StyledWordContainer } from '../../createGlobalStyle';
 import {
   StyledGameOverStats,
-  StyledGameOver,
+  StyledUserStatsBase,
   StyledWordAndButtons,
   StyledButtons,
 } from './game-styling';
-import { StyledReading, StyledWordContainer } from '../words/words-styling';
+import { StyledReading } from '../words/words-styling';
 import { StartButton } from '../startandnew/StartButton';
 
 export const GameOverScreen: FC = (): JSX.Element => {
@@ -23,9 +23,9 @@ export const GameOverScreen: FC = (): JSX.Element => {
 
   return (
     <Fragment>
-      <StyledGameOver data-testid={'gameoverscreen'}>
+      <StyledUserStatsBase data-testid={'gameoverscreen'}>
         <h1>GAME OVER</h1>
-      </StyledGameOver>
+      </StyledUserStatsBase>
       <StyledWordAndButtons>
         <StyledWordContainer>
           <StyledGameOverStats>

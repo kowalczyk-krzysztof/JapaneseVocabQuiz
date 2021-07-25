@@ -9,6 +9,7 @@ const Fade = keyframes`
 `;
 
 export const StyledDyingHeart = styled(Heart)`
+  justify-self: bottom;
   width: 45px;
   height: 45px;
   color: ${red};
@@ -43,30 +44,27 @@ export const StyledPointsGained = styled.span`
   animation: ${Fade} 3s 1;
 `;
 
-export const StyledLivesContainer = styled.div`
-  grid-area: lives;
+const StyledStatsContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: right;
-  padding-top: 5px;
-  padding-right: 5px;
+  padding: 5px;
 `;
+
+export const StyledLivesContainer = styled(StyledStatsContainer)`
+  grid-area: lives;
+  flex-wrap: wrap;
+  justify-content: right;
+  flex-direction: column;
+`;
+
 export const StyledHeartsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  align-items: right;
-  padding-top: 5px;
-  padding-right: 5px;
 `;
 
-export const StyledPointsContainer = styled.div`
+export const StyledPointsContainer = styled(StyledStatsContainer)`
   grid-area: points;
-  display: flex;
   flex-direction: column;
-  user-select: none;
   text-align: left;
-  padding-top: 5px;
-  padding-left: 5px;
   span:nth-child(2) {
     font-size: 1.5rem;
   }

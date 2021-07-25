@@ -1,4 +1,5 @@
 import { FC, Fragment } from 'react';
+import { StyledWordContainer } from '../../createGlobalStyle';
 // Redux
 
 import { startingLives } from '../../features/game/gameSlice';
@@ -7,8 +8,7 @@ import { StartButton } from '../startandnew/StartButton';
 // Styling
 import {
   StyledWordAndButtons,
-  StyledStartScreen,
-  StyledGameTitle,
+  StyledUserStatsBase,
   StyledInstructionsContainer,
   StyledButtons,
 } from './game-styling';
@@ -16,11 +16,11 @@ import {
 export const StartGameScreen: FC = (): JSX.Element => {
   return (
     <Fragment>
-      <StyledGameTitle data-testid={'startgamescreen'}>
+      <StyledUserStatsBase data-testid={'startgamescreen'}>
         <h1>JAPANESE WORDS QUIZ</h1>
-      </StyledGameTitle>
+      </StyledUserStatsBase>
       <StyledWordAndButtons>
-        <StyledStartScreen>
+        <StyledWordContainer>
           <StyledInstructionsContainer>
             <span>
               Generate a two-kanji word and guess if it's a real Japanese word
@@ -29,7 +29,7 @@ export const StartGameScreen: FC = (): JSX.Element => {
             <span>Providing a wrong answer loses you a life </span>
             <span>Take care you only have {startingLives} lives</span>
           </StyledInstructionsContainer>
-        </StyledStartScreen>
+        </StyledWordContainer>
         <StyledButtons>
           <StartButton />
         </StyledButtons>

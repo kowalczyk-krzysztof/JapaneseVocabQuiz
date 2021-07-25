@@ -1,17 +1,8 @@
 import styled from 'styled-components';
-import {
-  green,
-  red,
-  StyledWordContainerTemplate,
-} from '../../createGlobalStyle';
+import { green, red } from '../../createGlobalStyle';
 
 export const StyledReading = styled.span`
   font-size: 1.5rem;
-`;
-
-export const StyledWordContainer = styled(StyledWordContainerTemplate)`
-  border-top: 0;
-  border-bottom: 0;
 `;
 
 export const StyledWord = styled.h1`
