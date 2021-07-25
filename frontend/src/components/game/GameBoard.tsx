@@ -1,35 +1,29 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 // Components
-import { NewWordButton } from '../startandnew/NewWordButton';
-import { AnswerButtonsContainer } from '../answers/AnswerButtonsContainer';
 import { PointsContainer } from '../user/PointsContainer';
 import { LivesContainer } from '../user/LivesContainer';
 import { WordInfo } from '../words/WordInfo';
 import { Countdown } from '../countdown/Countdown';
-import { StartButton } from '../startandnew/StartButton';
+import { ButtonContainer } from '../buttons/ButtonContainer';
 // Styling
 import {
   StyledUserStats,
   StyledWordAndButtons,
-  StyledButtons,
+  StyledScreen,
 } from './game-styling';
 
 export const GameBoard: FC = (): JSX.Element => {
   return (
-    <Fragment>
-      <StyledUserStats data-testid={'gameboard'}>
+    <StyledScreen data-testid={'gameboard'}>
+      <StyledUserStats>
         <Countdown />
         <PointsContainer />
         <LivesContainer />
       </StyledUserStats>
       <StyledWordAndButtons>
         <WordInfo />
-        <StyledButtons>
-          <NewWordButton />
-          <AnswerButtonsContainer />
-          <StartButton />
-        </StyledButtons>
+        <ButtonContainer />
       </StyledWordAndButtons>
-    </Fragment>
+    </StyledScreen>
   );
 };

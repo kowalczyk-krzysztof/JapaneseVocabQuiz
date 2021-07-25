@@ -1,7 +1,9 @@
+// Axios
 import axios from 'axios';
-
-import { fetchWord } from './fetchWord';
+// Redux
 import { WordProps } from './wordsSlice';
+// Functions
+import { fetchWord } from './fetchWord';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

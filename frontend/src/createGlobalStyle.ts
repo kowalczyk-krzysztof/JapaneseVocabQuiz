@@ -32,17 +32,6 @@ background-color: #4b32ae;
 }
 `;
 
-export const ButtonTemplate = styled.button`
-  margin-top: 10px;
-  width: 8rem;
-  height: 4rem;
-  user-select: none;
-  box-sizing: border-box;
-  border-radius: 10px;
-  cursor: pointer;
-  outline: none;
-`;
-
 export const StyledWordContainer = styled.div`
   grid-area: word;
   display: flex;

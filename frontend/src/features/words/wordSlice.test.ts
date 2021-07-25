@@ -1,3 +1,4 @@
+// Redux
 import { createTestStore } from '../../app/store';
 import {
   SET_NEW_WORD,

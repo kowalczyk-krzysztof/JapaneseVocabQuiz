@@ -1,11 +1,14 @@
-import { createTestStore } from '../../app/store';
+// Testing libraries
 import { render } from '@testing-library/react';
+// Redux
+import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
-import { GameOverScreen } from './GameOverScreen';
 import {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,
 } from '../../features/game/gameSlice';
+// Components
+import { GameOverScreen } from './GameOverScreen';
 
 let store = createTestStore();
 

@@ -1,12 +1,15 @@
-import { createTestStore } from '../../app/store';
+// Testing libraries
 import { render, screen } from '@testing-library/react';
+// Redux
+import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
-import { WordInfo } from './WordInfo';
 import {
   SET_GAME_STARTED,
   SET_QUESTION_ANSWERED,
 } from '../../features/game/gameSlice';
 import { SET_NEW_WORD, WordProps } from '../../features/words/wordsSlice';
+// Components
+import { WordInfo } from './WordInfo';
 
 let store = createTestStore();
 

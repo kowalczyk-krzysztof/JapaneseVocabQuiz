@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';

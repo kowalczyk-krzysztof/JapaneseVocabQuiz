@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -11,7 +11,7 @@ import {
 } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Styling
-import { StyledTrueButton, StyledFalseButton } from './answers-styling';
+import { StyledTrueButton, StyledFalseButton } from './buttons-styling';
 
 interface AnswerButtonProps {
   isTrue: boolean;

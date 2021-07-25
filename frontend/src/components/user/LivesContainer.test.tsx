@@ -1,8 +1,11 @@
-import { createTestStore } from '../../app/store';
+// Testing libraries
 import { render } from '@testing-library/react';
+// Redux
+import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
-import { LivesContainer } from './LivesContainer';
 import { SET_GAME_STARTED, startingLives } from '../../features/game/gameSlice';
+// Components
+import { LivesContainer } from './LivesContainer';
 
 let store = createTestStore();
 

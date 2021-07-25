@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -14,7 +14,7 @@ import {
   gameSelector,
 } from '../../features/game/gameSlice';
 // Styling
-import { StyledGameStateButton } from './startandnew-styling';
+import { StyledGameStateButton } from './buttons-styling';
 
 export const NewWordButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();

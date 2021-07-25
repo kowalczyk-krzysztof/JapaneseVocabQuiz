@@ -1,8 +1,10 @@
-import { createTestStore } from '../../app/store';
+// Testing libraries
 import { render, screen } from '@testing-library/react';
+// Redux
+import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
+// Components
 import { GameContainer } from './GameContainer';
-import { SET_GAME_STARTED } from '../../features/game/gameSlice';
 
 let store = createTestStore();
 
@@ -11,21 +13,7 @@ beforeEach(() => {
 });
 
 describe('testing main game container', () => {
-  test('game container rendering properly when game has started', () => {
-    let state = store.getState().game;
-    expect(state.isGameStarted).toEqual(false);
-    store.dispatch(SET_GAME_STARTED(true));
-    state = store.getState().game;
-    expect(state.isGameStarted).toEqual(true);
-
-    const { queryByTestId } = render(
-      <Provider store={store}>
-        <GameContainer />
-      </Provider>
-    );
-    expect(queryByTestId('gamecontainer')).toBeInTheDocument();
-  });
-  test('game container rendering properly when the word is not started yet', () => {
+  test('game container rendering properly', () => {
     let state = store.getState().game;
     expect(state.isGameStarted).toEqual(false);
     render(

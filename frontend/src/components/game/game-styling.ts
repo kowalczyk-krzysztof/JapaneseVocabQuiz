@@ -53,10 +53,12 @@ export const StyledButtons = styled.div`
 `;
 
 export const StyledInstructionsContainer = styled.div`
+  grid-area: word;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   user-select: none;
-  justify-content: flex-start;
+  justify-content: center;
   span {
     width: 100%;
     padding: 5px;

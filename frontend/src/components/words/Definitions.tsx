@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';

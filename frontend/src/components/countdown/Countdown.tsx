@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';

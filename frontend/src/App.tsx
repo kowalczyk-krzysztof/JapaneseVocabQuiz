@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 // Components
 import { GameContainer } from './components/game/GameContainer';
 // Styling

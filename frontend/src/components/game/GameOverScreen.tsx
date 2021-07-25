@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 // Redux
 import { useSelector } from 'react-redux';
 import { gameSelector, Game } from '../../features/game/gameSlice';
@@ -12,17 +12,17 @@ import {
   StyledGameOverStats,
   StyledUserStatsBase,
   StyledWordAndButtons,
-  StyledButtons,
+  StyledScreen,
 } from './game-styling';
 import { StyledReading } from '../words/words-styling';
-import { StartButton } from '../startandnew/StartButton';
+import { ButtonContainer } from '../buttons/ButtonContainer';
 
 export const GameOverScreen: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
   const game: Game = useSelector(gameSelector);
 
   return (
-    <Fragment>
+    <StyledScreen>
       <StyledUserStatsBase data-testid={'gameoverscreen'}>
         <h1>GAME OVER</h1>
       </StyledUserStatsBase>
@@ -37,10 +37,8 @@ export const GameOverScreen: FC = (): JSX.Element => {
             <Definitions />
           </StyledGameOverStats>
         </StyledWordContainer>
-        <StyledButtons>
-          <StartButton />
-        </StyledButtons>
+        <ButtonContainer />
       </StyledWordAndButtons>
-    </Fragment>
+    </StyledScreen>
   );
 };

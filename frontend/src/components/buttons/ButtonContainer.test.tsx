@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
 // Components
-import { StartGameScreen } from './StartGameScreen';
+import { ButtonContainer } from './ButtonContainer';
 
 let store = createTestStore();
 
@@ -12,17 +12,13 @@ beforeEach(() => {
   store = createTestStore();
 });
 
-describe('testing start game screen', () => {
-  test('start game screen rendering properly when game is not started', () => {
-    let state = store.getState().game;
-    expect(state.isGameStarted).toEqual(false);
-
+describe('testing button container', () => {
+  test('button container button rendering properly', () => {
     const { queryByTestId } = render(
       <Provider store={store}>
-        <StartGameScreen />
+        <ButtonContainer />
       </Provider>
     );
-
-    expect(queryByTestId('startgamescreen')).toBeInTheDocument();
+    expect(queryByTestId('buttoncontainer')).toBeInTheDocument();
   });
 });

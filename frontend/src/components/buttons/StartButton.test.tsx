@@ -1,8 +1,9 @@
+// Testing libraries
 import userEvent from '@testing-library/user-event';
-import { createTestStore } from '../../app/store';
 import { render } from '@testing-library/react';
+// Redux
+import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
-import { StartButton } from './StartButton';
 import {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,
@@ -10,6 +11,8 @@ import {
   startingLives,
 } from '../../features/game/gameSlice';
 import { initialState } from '../../features/words/wordsSlice';
+// Components
+import { StartButton } from './StartButton';
 
 let store = createTestStore();
 

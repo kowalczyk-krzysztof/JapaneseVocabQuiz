@@ -1,8 +1,11 @@
-import { createTestStore } from '../../app/store';
+// Testing libraries
 import { render } from '@testing-library/react';
+// Redux
+import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
-import { GameBoard } from './GameBoard';
 import { SET_GAME_STARTED } from '../../features/game/gameSlice';
+// Components
+import { GameBoard } from './GameBoard';
 
 let store = createTestStore();
 
@@ -24,15 +27,5 @@ describe('testing game board', () => {
       </Provider>
     );
     expect(queryByTestId('gameboard')).toBeInTheDocument();
-  });
-  test('game board not rendering when the game has not started', () => {
-    let state = store.getState().game;
-    expect(state.isGameStarted).toEqual(false);
-    const { queryByTestId } = render(
-      <Provider store={store}>
-        <GameBoard />
-      </Provider>
-    );
-    expect(queryByTestId('gameboard')).toEqual(null);
   });
 });
