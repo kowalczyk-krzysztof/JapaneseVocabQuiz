@@ -11,21 +11,20 @@ import {
 
 export const DisplayWord: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
-  const [dateTime, setDateTime] = useState(0);
-
-  // This is so the loading dots only show up when it's taking over 2 seconds to load
-  // Logic behind this - when clicking Start or New Word button I set state in Redux "word.wordLoading = true" and "word.loadingTime = Date.now()", fetch new word and after it's fetched set "word.wordLoading = false". When this component mounts, set a 3 sec timeout that will set local state dateTime to Date.now(). If the word is still loading and dateTime - word.loadingTime > 1 then render the loading dots
+  const [dateTime, setDateTime] = useState<number>(0);
 
   useEffect(() => {
-    const currentTime = setTimeout(() => {
-      setDateTime(Date.now());
-    }, 3000);
-    return () => {
-      clearInterval(currentTime);
-    };
-  }, []);
+    if (word.wordLoading) {
+      const interval = setInterval(() => {
+        // Using it like this, I don't need to have dateTime as dependency
+        setDateTime((dateTime) => dateTime + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    } else setDateTime(0);
+  }, [word.wordLoading]);
 
-  if (word.wordLoading && dateTime - word.loadingTime > 1)
+  // Only render loading dots if it's taking over 3 seconds to fetch word
+  if (dateTime >= 3)
     return (
       <StyledLoadingContainer data-testid={'loadingdots'}>
         <StyledLoadingDot />

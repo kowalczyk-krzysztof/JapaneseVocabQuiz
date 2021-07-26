@@ -33,7 +33,6 @@ describe('testing word slice reducers', () => {
     expect(state.word.reading).toEqual('しょうぶ');
     expect(state.word.definitions).toEqual(['victory or defeat']);
     expect(state.wordLoading).toEqual(false);
-    expect(state.loadingTime).toEqual(0);
   });
   test('resets a word', () => {
     store.dispatch(SET_NEW_WORD(newWord));
@@ -54,11 +53,9 @@ describe('testing word slice reducers', () => {
   test('sets word loading state', () => {
     let state: WordObject = store.getState().words;
     expect(state.wordLoading).toEqual(false);
-    expect(state.loadingTime).toEqual(0);
-    const now: number = Date.now();
-    store.dispatch(SET_WORD_LOADING(now));
+
+    store.dispatch(SET_WORD_LOADING());
     state = store.getState().words;
     expect(state.wordLoading).toEqual(true);
-    expect(state.loadingTime).toEqual(now);
   });
 });

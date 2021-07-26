@@ -14,7 +14,7 @@ export const mediumMargin: string = '20%';
 export const bigMargin: string = '25%';
 
 export const GlobalStyle = createGlobalStyle`
-html, body {
+html {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   color: ${white};
   font-family: 'Noto Sans', sans-serif;

@@ -25,7 +25,7 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     dispatch(SET_WORD_RESET());
     dispatch(SET_RESET_POINTS_GAINED());
     dispatch(SET_QUESTION_ANSWERED(false));
-    dispatch(SET_WORD_LOADING(Date.now()));
+    dispatch(SET_WORD_LOADING());
   };
   if (game.is_question_answered && game.lives && !word.wordLoading)
     return (

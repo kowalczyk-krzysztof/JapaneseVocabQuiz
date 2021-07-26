@@ -11,7 +11,6 @@ export interface WordProps {
 export interface WordObject {
   word: WordProps;
   wordLoading: boolean;
-  loadingTime: number;
 }
 export const initialState: WordObject = {
   word: {
@@ -21,7 +20,6 @@ export const initialState: WordObject = {
     definitions: [''],
   },
   wordLoading: false,
-  loadingTime: 0,
 };
 // Slice
 const wordsSlice = createSlice({
@@ -30,7 +28,6 @@ const wordsSlice = createSlice({
   reducers: {
     SET_NEW_WORD(state, action: PayloadAction<WordProps>) {
       state.wordLoading = false;
-      state.loadingTime = 0;
       state.word.word = action.payload.word;
       state.word.wordExists = action.payload.wordExists;
       state.word.reading = action.payload.reading;
@@ -42,9 +39,8 @@ const wordsSlice = createSlice({
       state.word.reading = '';
       state.word.definitions = [''];
     },
-    SET_WORD_LOADING(state, action: PayloadAction<number>) {
+    SET_WORD_LOADING(state) {
       state.wordLoading = true;
-      state.loadingTime = action.payload;
     },
   },
 });

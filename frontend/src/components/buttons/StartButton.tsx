@@ -29,7 +29,7 @@ export const StartButton: FC = (): JSX.Element | null => {
     dispatch(SET_QUESTION_ANSWERED(false));
     dispatch(SET_USER_ANSWER(null));
     dispatch(SET_WORD_RESET());
-    dispatch(SET_WORD_LOADING(Date.now()));
+    dispatch(SET_WORD_LOADING());
   };
   if (game.isGameOver || !game.isGameStarted)
     return (
