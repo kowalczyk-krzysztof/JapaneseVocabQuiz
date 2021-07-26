@@ -1,6 +1,6 @@
 module.exports = {
   globDirectory: 'src/',
-  globPatterns: ['**/*.{tsx,ts,woff,woff2}'],
+  globPatterns: ['**/*.{tsx,ts}'],
   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
   swDest: 'public/sw.js',
 };
