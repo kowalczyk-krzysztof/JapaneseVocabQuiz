@@ -45,12 +45,12 @@ describe('testing displayword component', () => {
 
     expect(word).toBeInTheDocument();
   });
-  test('set timeout causing loading dots to render after 2 seconds of trying to fetch a word', () => {
+  test('set timeout causing loading dots to render after 3 seconds of trying to fetch a word', () => {
     // USE FAKE TIMERS HAS TO BE AT THE BEGGINING OR IT WON'T WORK, FOR SOME REASON
     jest.useFakeTimers();
     let state = store.getState();
     store.dispatch(SET_GAME_STARTED(true));
-    store.dispatch(SET_WORD_LOADING(Date.now()));
+    store.dispatch(SET_WORD_LOADING());
     state = store.getState();
     expect(state.game.isGameStarted).toEqual(true);
 
@@ -61,7 +61,7 @@ describe('testing displayword component', () => {
     );
 
     act(() => {
-      jest.advanceTimersByTime(2000);
+      jest.advanceTimersByTime(3000);
     });
     expect(queryByTestId('loadingdots')).toBeInTheDocument();
   });

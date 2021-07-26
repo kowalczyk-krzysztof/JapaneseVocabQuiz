@@ -50,8 +50,6 @@ describe('testing new word button', () => {
     userEvent.click(queryByTestId('newwordbutton') as HTMLElement);
 
     state = store.getState();
-
-    expect(state.words.loadingTime).toBeGreaterThan(0);
     expect(state.words.wordLoading).toEqual(true);
     expect(state.words.word).toEqual(initialState.word);
     expect(state.game.points_gained).toEqual(0);

@@ -3,7 +3,7 @@ import { FC, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
 // Styling
-import { StyledFakeWord } from './words-styling';
+import { StyledFakeWord, StyledDefinition } from './words-styling';
 
 export const Definitions: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
@@ -13,13 +13,9 @@ export const Definitions: FC = (): JSX.Element => {
       <Fragment>
         {word.word.definitions.map((el: string, index: number) => {
           return (
-            <span
-              style={{ padding: '5px' }}
-              key={index}
-              data-testid={'definitions'}
-            >
+            <StyledDefinition key={index} data-testid={'definitions'}>
               {el}
-            </span>
+            </StyledDefinition>
           );
         })}
       </Fragment>
