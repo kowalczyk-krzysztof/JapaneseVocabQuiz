@@ -51,10 +51,7 @@ export const StyledInstructionsContainer = styled.div`
   flex-direction: column;
   user-select: none;
   justify-content: center;
-  span {
-    width: 100%;
-    padding: 5px;
-  }
+  padding: 1rem;
 `;
 
 export const StyledUserStatsBase = styled.div`
