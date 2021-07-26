@@ -29,6 +29,7 @@ export const WordInfo: FC = (): JSX.Element => {
   useEffect(() => {
     const fetchAndSetWord = async () => {
       const res = await fetchWord();
+
       if (res) {
         const wordObject: WordProps = {
           word: res.data.word,
@@ -36,7 +37,6 @@ export const WordInfo: FC = (): JSX.Element => {
           reading: res.data.reading,
           definitions: res.data.definitions,
         };
-
         dispatch(SET_NEW_WORD(wordObject));
         dispatch(SET_TIMER_START());
       }
