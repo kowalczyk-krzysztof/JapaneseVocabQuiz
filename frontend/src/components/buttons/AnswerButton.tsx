@@ -30,7 +30,7 @@ export const AnswerButton: FC<AnswerButtonProps> = ({
       dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());
   };
-  if (isTrue === true)
+  if (isTrue)
     return (
       <StyledTrueButton onClick={clickHandler} data-testid={'trueanswerbutton'}>
         REAL WORD

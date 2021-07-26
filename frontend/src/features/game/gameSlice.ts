@@ -54,7 +54,7 @@ const gameSlice = createSlice({
     },
     SET_REMOVE_LIFE(state) {
       state.lives = state.lives - 1;
-      if (state.lives === 0) state.isGameOver = true;
+      if (!state.lives) state.isGameOver = true;
       state.lives_lost = state.lives_lost + 1;
       state.points_gained = 0;
     },
@@ -69,9 +69,9 @@ const gameSlice = createSlice({
     },
     SET_DECREASE_TIME(state) {
       state.time_left = state.time_left - 1;
-      if (state.time_left === 0) {
+      if (!state.time_left) {
         state.lives = state.lives - 1;
-        if (state.lives === 0) state.isGameOver = true;
+        if (!state.lives) state.isGameOver = true;
         state.lives_lost = state.lives_lost + 1;
         state.is_question_answered = true;
       }

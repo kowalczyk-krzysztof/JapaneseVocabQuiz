@@ -22,8 +22,8 @@ export const StartButton: FC = (): JSX.Element | null => {
   const dispatch = useDispatch();
   const game: Game = useSelector(gameSelector);
   const clickHandler = (): void => {
-    if (game.isGameStarted === false) dispatch(SET_GAME_STARTED(true));
-    if (game.isGameOver === true) dispatch(SET_IS_GAME_OVER(false));
+    if (!game.isGameStarted) dispatch(SET_GAME_STARTED(true));
+    if (game.isGameOver) dispatch(SET_IS_GAME_OVER(false));
     dispatch(SET_RESET_LIVES());
     dispatch(SET_RESET_POINTS());
     dispatch(SET_QUESTION_ANSWERED(false));
@@ -31,7 +31,7 @@ export const StartButton: FC = (): JSX.Element | null => {
     dispatch(SET_WORD_RESET());
     dispatch(SET_WORD_LOADING(Date.now()));
   };
-  if (game.isGameOver === true || game.isGameStarted === false)
+  if (game.isGameOver || !game.isGameStarted)
     return (
       <StyledGameStateButton onClick={clickHandler} data-testid={'startbutton'}>
         START

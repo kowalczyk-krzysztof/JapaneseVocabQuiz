@@ -15,13 +15,9 @@ export const ButtonContainer: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
   return (
     <StyledButtons data-testid={'buttoncontainer'}>
-      {game.isGameStarted === false || game.isGameOver === true ? (
-        <StartButton />
-      ) : null}
+      {!game.isGameStarted || game.isGameOver ? <StartButton /> : null}
       <NewWordButton />
-      {game.is_question_answered === false &&
-      game.isGameStarted === true &&
-      word.wordLoading === false ? (
+      {!game.is_question_answered && game.isGameStarted && !word.wordLoading ? (
         <Fragment>
           <AnswerButton isTrue={true} />
           <AnswerButton isTrue={false} />
