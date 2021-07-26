@@ -42,11 +42,9 @@ export const StyledWordContainer = styled.div`
 
 const DotAnimation = keyframes`
   50% {
-     opacity: 0;
+    opacity: 0;
     transform: scale(0.6) translateY(10px);
   }
-   
-
 `;
 
 export const StyledLoadingDot = styled.span`
