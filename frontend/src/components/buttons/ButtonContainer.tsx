@@ -8,7 +8,7 @@ import { NewWordButton } from './NewWordButton';
 import { AnswerButton } from './AnswerButton';
 import { StartButton } from './StartButton';
 // Styling
-import { StyledButtons } from '../game/game-styling';
+import { StyledButtons } from './buttons-styling';
 
 export const ButtonContainer: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
