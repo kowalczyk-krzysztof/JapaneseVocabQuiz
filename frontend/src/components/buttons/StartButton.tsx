@@ -37,5 +37,5 @@ export const StartButton: FC = (): JSX.Element | null => {
         START
       </StyledGameStateButton>
     );
-  else return null;
+  return null;
 };

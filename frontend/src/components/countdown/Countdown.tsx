@@ -32,26 +32,15 @@ export const Countdown: FC = (): JSX.Element | null => {
   else strokeColor = red;
 
   useEffect(() => {
-    if (
-      game.time_left > 0 &&
-      !game.is_question_answered &&
-      game.isGameStarted &&
-      !word.wordLoading
-    ) {
+    if (game.time_left && !game.is_question_answered && !word.wordLoading) {
       const interval = setInterval(() => {
         dispatch(SET_DECREASE_TIME());
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [
-    dispatch,
-    game.time_left,
-    game.is_question_answered,
-    game.isGameStarted,
-    word.wordLoading,
-  ]);
+  }, [dispatch, game.time_left, game.is_question_answered, word.wordLoading]);
 
-  if (!word.wordLoading && game.isGameStarted && !game.is_question_answered)
+  if (!word.wordLoading && !game.is_question_answered)
     return (
       <StyledCountdownContainer data-testid={'countdown'}>
         <span>Time left</span>
@@ -78,11 +67,11 @@ export const Countdown: FC = (): JSX.Element | null => {
         </svg>
       </StyledCountdownContainer>
     );
-  else if (!game.time_left && game.lives > 0)
+  if (!game.time_left)
     return (
       <StyledCountdownContainer data-testid={'countdown'}>
         <p>TIME UP</p>
       </StyledCountdownContainer>
     );
-  else return null;
+  return null;
 };

@@ -27,12 +27,7 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     dispatch(SET_QUESTION_ANSWERED(false));
     dispatch(SET_WORD_LOADING(Date.now()));
   };
-  if (
-    game.isGameStarted &&
-    game.is_question_answered &&
-    game.lives > 0 &&
-    !word.wordLoading
-  )
+  if (game.is_question_answered && game.lives && !word.wordLoading)
     return (
       <StyledGameStateButton
         onClick={clickHandler}
@@ -41,5 +36,5 @@ export const NewWordButton: FC = (): JSX.Element | null => {
         NEW WORD
       </StyledGameStateButton>
     );
-  else return null;
+  return null;
 };

@@ -36,13 +36,10 @@ export const AnswerButton: FC<AnswerButtonProps> = ({
         REAL WORD
       </StyledTrueButton>
     );
-  else
-    return (
-      <StyledFalseButton
-        onClick={clickHandler}
-        data-testid={'falseanswerbutton'}
-      >
-        FAKE WORD
-      </StyledFalseButton>
-    );
+
+  return (
+    <StyledFalseButton onClick={clickHandler} data-testid={'falseanswerbutton'}>
+      FAKE WORD
+    </StyledFalseButton>
+  );
 };

@@ -8,7 +8,7 @@ import { StyledFakeWord } from './words-styling';
 export const Definitions: FC = (): JSX.Element => {
   const word: WordObject = useSelector(wordsSelector);
 
-  if (word.word.definitions.length > 0)
+  if (word.word.definitions.length)
     return (
       <Fragment>
         {word.word.definitions.map((el: string, index: number) => {

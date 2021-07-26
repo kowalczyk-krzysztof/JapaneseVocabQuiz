@@ -9,7 +9,7 @@ import { GameOverScreen } from './GameOverScreen';
 
 export const GameContainer: FC = (): JSX.Element => {
   const game: Game = useSelector(gameSelector);
-  if (game.isGameStarted && !game.isGameOver) return <GameBoard />;
-  else if (game.isGameStarted && game.isGameOver) return <GameOverScreen />;
+  if (game.isGameOver) return <GameOverScreen />;
+  if (game.isGameStarted) return <GameBoard />;
   return <StartGameScreen />;
 };
