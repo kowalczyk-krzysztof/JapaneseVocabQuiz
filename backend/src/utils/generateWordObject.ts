@@ -13,7 +13,7 @@ export const generateWordObject = (
   generatedWord: string,
   index?: typeof generateRandomNumber
 ): Word => {
-  if (words.length === 0) {
+  if (!words.length) {
     let whatWord: string;
     if (generatedWord.length === 1) whatWord = generatedWord + '々';
     else whatWord = generatedWord;

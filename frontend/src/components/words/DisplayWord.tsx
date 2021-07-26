@@ -25,7 +25,7 @@ export const DisplayWord: FC = (): JSX.Element => {
     };
   }, []);
 
-  if (word.wordLoading === true && dateTime - word.loadingTime > 1)
+  if (word.wordLoading && dateTime - word.loadingTime > 1)
     return (
       <StyledLoadingContainer data-testid={'loadingdots'}>
         <StyledLoadingDot />

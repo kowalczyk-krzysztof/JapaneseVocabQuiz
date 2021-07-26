@@ -29,9 +29,7 @@ export const LivesContainer: FC = (): JSX.Element => {
         })}
       </StyledHeartsContainer>
 
-      {game.points_gained === 0 &&
-      game.is_question_answered === true &&
-      word.wordLoading === false ? (
+      {!game.points_gained && game.is_question_answered && !word.wordLoading ? (
         <StyledHeartsContainer>
           <StyledDyingHeart />
         </StyledHeartsContainer>

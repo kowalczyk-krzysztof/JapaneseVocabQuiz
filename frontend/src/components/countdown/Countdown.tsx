@@ -34,9 +34,9 @@ export const Countdown: FC = (): JSX.Element | null => {
   useEffect(() => {
     if (
       game.time_left > 0 &&
-      game.is_question_answered === false &&
-      game.isGameStarted === true &&
-      word.wordLoading === false
+      !game.is_question_answered &&
+      game.isGameStarted &&
+      !word.wordLoading
     ) {
       const interval = setInterval(() => {
         dispatch(SET_DECREASE_TIME());
@@ -51,11 +51,7 @@ export const Countdown: FC = (): JSX.Element | null => {
     word.wordLoading,
   ]);
 
-  if (
-    word.wordLoading === false &&
-    game.isGameStarted === true &&
-    game.is_question_answered === false
-  )
+  if (!word.wordLoading && game.isGameStarted && !game.is_question_answered)
     return (
       <StyledCountdownContainer data-testid={'countdown'}>
         <span>Time left</span>
@@ -82,7 +78,7 @@ export const Countdown: FC = (): JSX.Element | null => {
         </svg>
       </StyledCountdownContainer>
     );
-  else if (game.time_left === 0 && game.lives > 0)
+  else if (!game.time_left && game.lives > 0)
     return (
       <StyledCountdownContainer data-testid={'countdown'}>
         <p>TIME UP</p>

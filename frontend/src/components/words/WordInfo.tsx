@@ -41,15 +41,10 @@ export const WordInfo: FC = (): JSX.Element => {
         dispatch(SET_TIMER_START());
       }
     };
-    if (word.wordLoading === true) fetchAndSetWord();
+    if (word.wordLoading) fetchAndSetWord();
   }, [dispatch, word.wordLoading]);
 
-  if (
-    game.isGameStarted === true &&
-    game.isGameOver === false &&
-    game.is_question_answered === true &&
-    word.wordLoading === false
-  )
+  if (game.isGameStarted && game.is_question_answered && !word.wordLoading)
     return (
       <StyledWordContainer data-testid={'wordinfo'}>
         <DisplayWord />

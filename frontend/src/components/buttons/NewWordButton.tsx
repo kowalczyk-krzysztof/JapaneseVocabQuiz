@@ -28,10 +28,10 @@ export const NewWordButton: FC = (): JSX.Element | null => {
     dispatch(SET_WORD_LOADING(Date.now()));
   };
   if (
-    game.isGameStarted === true &&
-    game.is_question_answered === true &&
+    game.isGameStarted &&
+    game.is_question_answered &&
     game.lives > 0 &&
-    word.wordLoading === false
+    !word.wordLoading
   )
     return (
       <StyledGameStateButton
