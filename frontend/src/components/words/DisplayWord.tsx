@@ -14,12 +14,12 @@ export const DisplayWord: FC = (): JSX.Element => {
   const [dateTime, setDateTime] = useState(0);
 
   // This is so the loading dots only show up when it's taking over 2 seconds to load
-  // Logic behind this - when clicking Start or New Word button I set state in Redux "word.wordLoading = true" and "word.loadingTime = Date.now()", fetch new word and after it's fetched set "word.wordLoading = false". When this component mounts, set a 2 sec timeout that will set local state dateTime to Date.now(). If the word is still loading and dateTime - word.loadingTime > 1 then render the loading dots
+  // Logic behind this - when clicking Start or New Word button I set state in Redux "word.wordLoading = true" and "word.loadingTime = Date.now()", fetch new word and after it's fetched set "word.wordLoading = false". When this component mounts, set a 3 sec timeout that will set local state dateTime to Date.now(). If the word is still loading and dateTime - word.loadingTime > 1 then render the loading dots
 
   useEffect(() => {
     const currentTime = setTimeout(() => {
       setDateTime(Date.now());
-    }, 2000);
+    }, 3000);
     return () => {
       clearInterval(currentTime);
     };
