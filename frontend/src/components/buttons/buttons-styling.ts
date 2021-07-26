@@ -8,6 +8,14 @@ import {
   lightGreen,
 } from '../../createGlobalStyle';
 
+export const StyledButtons = styled.div`
+  grid-area: buttons;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+`;
+
 const ButtonTemplate = styled.button`
   margin-top: 10px;
   width: 8rem;
@@ -21,7 +29,7 @@ const ButtonTemplate = styled.button`
 
 export const StyledGameStateButton = styled(ButtonTemplate)`
   color: ${white};
-  width: 12rem;
+  width: 8rem;
   height: 4rem;
   border: 2px solid #00abe7;
   margin-top: 0;
@@ -32,9 +40,11 @@ export const StyledGameStateButton = styled(ButtonTemplate)`
 `;
 
 const StyledAnswerButton = styled(ButtonTemplate)`
-  margin-top: 0;
   border: 2px solid ${white};
   color: ${white};
+  @media only screen and (max-width: 480px) {
+    width: 5rem;
+  }
 `;
 
 export const StyledTrueButton = styled(StyledAnswerButton)`

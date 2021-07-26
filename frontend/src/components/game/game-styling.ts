@@ -44,17 +44,6 @@ export const StyledWordAndButtons = styled.div`
     'buttons buttons';
 `;
 
-export const StyledButtons = styled.div`
-  grid-area: buttons;
-  display: flex;
-  justify-content: center;
-  gap: 5vh;
-  padding: 1rem;
-  @media only screen and (max-width: 480px) {
-    gap: 2vh;
-  }
-`;
-
 export const StyledInstructionsContainer = styled.div`
   grid-area: word;
   display: flex;
