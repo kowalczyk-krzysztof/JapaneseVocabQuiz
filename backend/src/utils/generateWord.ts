@@ -20,5 +20,6 @@ export const generateWord = (
     else secondKanji = kanjiList[secondIndex];
     const word: string = firstKanji + secondKanji;
     return word;
-  } else return firstKanji;
+  }
+  return firstKanji;
 };

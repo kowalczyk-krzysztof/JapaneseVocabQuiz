@@ -15,7 +15,7 @@ export const PointsContainer: FC = (): JSX.Element => {
     <StyledPointsContainer data-testid={'pointscontainer'}>
       <span>Points</span>
       <span>{game.points}</span>
-      {game.points_gained > 0 ? (
+      {game.points_gained ? (
         <StyledPointsGained> +{game.points_gained}</StyledPointsGained>
       ) : null}
     </StyledPointsContainer>
