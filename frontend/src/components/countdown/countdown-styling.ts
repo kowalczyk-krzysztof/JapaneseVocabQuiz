@@ -17,6 +17,12 @@ export const StyledCountdownContainer = styled.div`
   span {
     width: 100%;
   }
+
+  @media only screen and (max-width: 480px) {
+    span {
+      font-size: 0.75rem;
+    }
+  }
 `;
 
 export const StyledProgressCircle = styled.circle`

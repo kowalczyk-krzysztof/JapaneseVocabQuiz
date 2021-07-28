@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import {
-  blackish,
-  white,
-  red,
-  lightRed,
-  green,
-  lightGreen,
-} from '../../createGlobalStyle';
+import { blackish, white } from '../../createGlobalStyle';
 
 export const StyledButtons = styled.div`
   grid-area: buttons;
@@ -35,6 +28,7 @@ export const StyledGameStateButton = styled(ButtonTemplate)`
   border: 2px solid #00abe7;
   margin-top: 0;
   background: ${blackish};
+  width: 10rem;
   :hover {
     background: #120c24;
   }
@@ -46,16 +40,16 @@ const StyledAnswerButton = styled(ButtonTemplate)`
 `;
 
 export const StyledTrueButton = styled(StyledAnswerButton)`
-  background: ${green};
+  background: #00cc66;
   :hover {
-    background: ${lightGreen};
+    background: #00e673;
   }
 `;
 
 export const StyledFalseButton = styled(StyledAnswerButton)`
-  background: ${red};
+  background: #e60000;
 
   :hover {
-    background: ${lightRed};
+    background: #ff0000;
   }
 `;
