@@ -22,7 +22,7 @@ export const Countdown: FC = (): JSX.Element | null => {
   // Progress circle variables
   const progress: number = (15 - game.time_left) * 6.67;
   const stroke: number = 4;
-  const radius: number = 26;
+  const radius: number = 22;
   const circumference: number = radius * 2 * Math.PI;
   const strokeDashoffset: number =
     circumference - (progress / 100) * circumference;

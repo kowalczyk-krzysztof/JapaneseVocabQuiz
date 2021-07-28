@@ -68,4 +68,17 @@ export const StyledPointsContainer = styled(StyledStatsContainer)`
   span:nth-child(2) {
     font-size: 1.5rem;
   }
+
+  @media only screen and (max-width: 480px) {
+    span {
+      font-size: 0.75rem;
+    }
+    span:nth-child(2) {
+      font-size: 1rem;
+    }
+
+    span:nth-child(3) {
+      font-size: 1rem;
+    }
+  }
 `;

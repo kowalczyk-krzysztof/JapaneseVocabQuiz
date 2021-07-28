@@ -3,9 +3,7 @@ import styled, { createGlobalStyle, keyframes } from 'styled-components';
 // Variables
 // Colors
 export const red: string = '#f74848';
-export const lightRed: string = '#fa6868';
 export const green: string = '#4df735';
-export const lightGreen: string = '#74f861';
 export const blackish: string = '#0a0713';
 export const white: string = '#FAFAFA';
 // Units

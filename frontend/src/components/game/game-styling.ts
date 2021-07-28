@@ -52,6 +52,16 @@ export const StyledInstructionsContainer = styled.div`
   user-select: none;
   justify-content: center;
   padding: 1rem;
+  span {
+    padding: 10px;
+    font-size: 1.25rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    span {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const StyledUserStatsBase = styled.div`
@@ -60,6 +70,12 @@ export const StyledUserStatsBase = styled.div`
   height: 100px;
   h1 {
     font-size: 1.5rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    h1 {
+      font-size: 1.25rem;
+    }
   }
 `;
 
