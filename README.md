@@ -1,7 +1,5 @@
 # An educational game to test your Japanese vocabulary
 
-https://japanese-quiz.herokuapp.com/
-
 Generate a two-kanji word and guess if it's a real Japanese word
 
 Earn points - the quicker you answer, the more you get
