@@ -6,26 +6,30 @@ import {
   SET_REMOVE_LIFE,
   SET_QUESTION_ANSWERED,
   gameSelector,
-  Game,
+  POINTS_PER_SECOND,
 } from '../../features/game/gameSlice';
-import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
+import { wordsSelector } from '../../features/words/wordsSlice';
 
 type Props = {
-  readonly isTrue: boolean;
+  readonly isCorrectAnswer: boolean;
 };
 
-export const AnswerButton: FC<Props> = ({ isTrue }) => {
+export const AnswerButton: FC<Props> = ({ isCorrectAnswer }) => {
   const dispatch = useDispatch();
-  const word: WordObject = useSelector(wordsSelector);
-  const game: Game = useSelector(gameSelector);
+  const word = useSelector(wordsSelector);
+  const { time_left } = useSelector(gameSelector);
   const clickHandler = () => {
-    dispatch(SET_USER_ANSWER(isTrue));
+    dispatch(SET_USER_ANSWER(isCorrectAnswer));
     dispatch(SET_QUESTION_ANSWERED(true));
-    if (word.word.wordExists === isTrue)
-      dispatch(SET_POINTS(5 * game.time_left));
-    else dispatch(SET_REMOVE_LIFE());
+    dispatch(
+      word.word.wordExists === isCorrectAnswer
+        ? SET_POINTS(POINTS_PER_SECOND * time_left)
+        : SET_REMOVE_LIFE()
+    );
   };
-  if (isTrue) return <button onClick={clickHandler}>REAL WORD</button>;
-
-  return <button onClick={clickHandler}>FAKE WORD</button>;
+  return (
+    <button onClick={clickHandler}>
+      {isCorrectAnswer ? 'REAL WORD' : 'FAKE WORD'}
+    </button>
+  );
 };

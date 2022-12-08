@@ -2,7 +2,7 @@ import { PointsContainer } from '../user/PointsContainer';
 import { LivesContainer } from '../user/LivesContainer';
 import { WordInfo } from '../words/WordInfo';
 import { Countdown } from '../countdown/Countdown';
-import { ButtonContainer } from '../buttons/ButtonContainer';
+import { AnswerButtons } from '../buttons/AnswerButtons';
 
 export const GameBoard = () => (
   <div>
@@ -13,7 +13,7 @@ export const GameBoard = () => (
     </div>
     <div>
       <WordInfo />
-      <ButtonContainer />
+      <AnswerButtons />
     </div>
   </div>
 );

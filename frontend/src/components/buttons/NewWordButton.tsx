@@ -21,7 +21,7 @@ export const NewWordButton = () => {
     dispatch(SET_QUESTION_ANSWERED(false));
     dispatch(SET_WORD_LOADING());
   };
-  if (game.is_question_answered && game.lives && !word.wordLoading)
+  if (game.isAnswered && game.lives && !word.wordLoading)
     return <button onClick={clickHandler}>NEW WORD</button>;
   return null;
 };

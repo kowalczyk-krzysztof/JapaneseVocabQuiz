@@ -29,7 +29,7 @@ export const WordInfo = () => {
     if (word.wordLoading) fetchAndSetWord();
   }, [dispatch, word.wordLoading]);
 
-  if (game.is_question_answered && !word.wordLoading)
+  if (game.isAnswered && !word.wordLoading)
     return (
       <div>
         <DisplayWord />

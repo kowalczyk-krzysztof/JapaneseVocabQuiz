@@ -1,32 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  SET_GAME_STARTED,
-  SET_RESET_LIVES,
-  SET_RESET_POINTS,
-  SET_QUESTION_ANSWERED,
-  SET_USER_ANSWER,
-  gameSelector,
-  SET_IS_GAME_OVER,
-} from '../../features/game/gameSlice';
-import {
-  SET_WORD_RESET,
-  SET_WORD_LOADING,
-} from '../../features/words/wordsSlice';
+import { useDispatch } from 'react-redux';
+import { SET_START_GAME } from '../../features/game/gameSlice';
 
 export const StartButton = () => {
   const dispatch = useDispatch();
-  const game = useSelector(gameSelector);
   const clickHandler = () => {
-    if (!game.isGameStarted) dispatch(SET_GAME_STARTED(true));
-    if (game.isGameOver) dispatch(SET_IS_GAME_OVER(false));
-    dispatch(SET_RESET_LIVES());
-    dispatch(SET_RESET_POINTS());
-    dispatch(SET_QUESTION_ANSWERED(false));
-    dispatch(SET_USER_ANSWER(null));
-    dispatch(SET_WORD_RESET());
-    dispatch(SET_WORD_LOADING());
+    console.log('click');
+    dispatch(SET_START_GAME());
   };
-  if (game.isGameOver || !game.isGameStarted)
-    return <button onClick={clickHandler}>START</button>;
-  return null;
+  return <button onClick={clickHandler}>START</button>;
 };

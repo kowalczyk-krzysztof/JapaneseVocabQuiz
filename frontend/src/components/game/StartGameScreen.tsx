@@ -1,5 +1,5 @@
-import { startingLives } from '../../features/game/gameSlice';
-import { ButtonContainer } from '../buttons/ButtonContainer';
+import { MAX_LIVES } from '../../features/game/gameSlice';
+import { StartButton } from '../buttons/StartButton';
 
 export const StartGameScreen = () => (
   <div>
@@ -13,9 +13,9 @@ export const StartGameScreen = () => (
         </span>
         <span>Earn points - the quicker you answer, the more you get</span>
         <span>Providing a wrong answer loses you a life </span>
-        <span>Take care you only have {startingLives} lives</span>
+        <span>Take care you only have {MAX_LIVES} lives</span>
       </div>
-      <ButtonContainer />
+      <StartButton />
     </div>
   </div>
 );

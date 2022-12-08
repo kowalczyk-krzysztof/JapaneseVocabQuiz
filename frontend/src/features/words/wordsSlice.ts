@@ -21,7 +21,7 @@ export const initialState: WordObject = {
   },
   wordLoading: false,
 };
-// Slice
+
 const wordsSlice = createSlice({
   name: `words`,
   initialState,

@@ -5,8 +5,8 @@ import { StartGameScreen } from './StartGameScreen';
 import { GameOverScreen } from './GameOverScreen';
 
 export const GameContainer = () => {
-  const game = useSelector(gameSelector);
-  if (game.isGameOver) return <GameOverScreen />;
-  if (game.isGameStarted) return <GameBoard />;
+  const { isGameStarted, lives } = useSelector(gameSelector);
+  if (isGameStarted && !lives) return <GameOverScreen />;
+  if (isGameStarted && lives) return <GameBoard />;
   return <StartGameScreen />;
 };

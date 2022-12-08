@@ -1,42 +1,39 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export interface Game {
+export type Game = {
   isGameStarted: boolean;
-  isGameOver: boolean;
   points: number;
   points_gained: number;
   lives: number;
-  lives_lost: number;
   user_answer: boolean | null;
-  is_question_answered: boolean;
+  isAnswered: boolean;
   time_left: number;
-}
+};
 
-export const startingLives: number = 5;
-export const startingTime: number = 15;
+export const MAX_LIVES = 5;
+export const STARTING_TIME = 15;
+export const POINTS_PER_SECOND = 5;
 
 export const initialState: Game = {
   isGameStarted: false,
-  isGameOver: false,
   points: 0,
   points_gained: 0,
-  lives: startingLives,
-  lives_lost: 0,
+  lives: MAX_LIVES,
   user_answer: null,
-  is_question_answered: false,
-  time_left: 15,
+  isAnswered: false,
+  time_left: STARTING_TIME,
 };
-// Slice
+
 const gameSlice = createSlice({
-  name: `game`,
+  name: 'game',
   initialState,
   reducers: {
-    SET_GAME_STARTED(state, action: PayloadAction<boolean>) {
-      state.isGameStarted = action.payload;
+    SET_START_GAME() {
+      return { ...initialState, isGameStarted: true };
     },
-    SET_IS_GAME_OVER(state, action: PayloadAction<boolean>) {
-      state.isGameOver = action.payload;
+    SET_IS_GAME_OVER(state) {
+      state.lives = 0;
     },
     SET_RESET_POINTS(state) {
       state.points = 0;
@@ -49,38 +46,32 @@ const gameSlice = createSlice({
       state.points_gained = 0;
     },
     SET_RESET_LIVES(state) {
-      state.lives = startingLives;
-      state.lives_lost = 0;
+      state.lives = MAX_LIVES;
     },
     SET_REMOVE_LIFE(state) {
       state.lives = state.lives - 1;
-      if (!state.lives) state.isGameOver = true;
-      state.lives_lost = state.lives_lost + 1;
       state.points_gained = 0;
     },
     SET_USER_ANSWER(state, action: PayloadAction<boolean | null>) {
       state.user_answer = action.payload;
     },
     SET_QUESTION_ANSWERED(state, action: PayloadAction<boolean>) {
-      state.is_question_answered = action.payload;
+      state.isAnswered = action.payload;
     },
     SET_TIMER_START(state) {
-      state.time_left = startingTime;
+      state.time_left = STARTING_TIME;
     },
     SET_DECREASE_TIME(state) {
       state.time_left = state.time_left - 1;
       if (!state.time_left) {
         state.lives = state.lives - 1;
-        if (!state.lives) state.isGameOver = true;
-        state.lives_lost = state.lives_lost + 1;
-        state.is_question_answered = true;
       }
     },
   },
 });
 export const gameSelector = (state: RootState) => state.game;
 export const {
-  SET_GAME_STARTED,
+  SET_START_GAME,
   SET_IS_GAME_OVER,
   SET_POINTS,
   SET_RESET_POINTS_GAINED,
