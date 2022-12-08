@@ -1,23 +1,14 @@
-import { FC } from 'react';
-// Redux
 import { useSelector } from 'react-redux';
-import { gameSelector, Game } from '../../features/game/gameSlice';
-// Styling
-import {
-  StyledPointsGained,
-  StyledPointsContainer,
-} from './user-stats-styling';
+import { gameSelector } from '../../features/game/gameSlice';
 
-export const PointsContainer: FC = (): JSX.Element => {
-  const game: Game = useSelector(gameSelector);
+export const PointsContainer = () => {
+  const game = useSelector(gameSelector);
 
   return (
-    <StyledPointsContainer data-testid={'pointscontainer'}>
+    <div>
       <span>Points</span>
       <span>{game.points}</span>
-      {game.points_gained ? (
-        <StyledPointsGained> +{game.points_gained}</StyledPointsGained>
-      ) : null}
-    </StyledPointsContainer>
+      {game.points_gained ? <div> +{game.points_gained}</div> : null}
+    </div>
   );
 };

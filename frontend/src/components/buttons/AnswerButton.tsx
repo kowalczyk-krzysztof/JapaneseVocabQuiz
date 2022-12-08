@@ -1,5 +1,4 @@
 import { FC } from 'react';
-// Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
   SET_USER_ANSWER,
@@ -10,36 +9,23 @@ import {
   Game,
 } from '../../features/game/gameSlice';
 import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
-// Styling
-import { StyledTrueButton, StyledFalseButton } from './buttons-styling';
 
-interface AnswerButtonProps {
-  isTrue: boolean;
-}
+type Props = {
+  readonly isTrue: boolean;
+};
 
-export const AnswerButton: FC<AnswerButtonProps> = ({
-  isTrue,
-}): JSX.Element => {
+export const AnswerButton: FC<Props> = ({ isTrue }) => {
   const dispatch = useDispatch();
   const word: WordObject = useSelector(wordsSelector);
   const game: Game = useSelector(gameSelector);
-  const clickHandler = (): void => {
+  const clickHandler = () => {
     dispatch(SET_USER_ANSWER(isTrue));
     dispatch(SET_QUESTION_ANSWERED(true));
     if (word.word.wordExists === isTrue)
       dispatch(SET_POINTS(5 * game.time_left));
     else dispatch(SET_REMOVE_LIFE());
   };
-  if (isTrue)
-    return (
-      <StyledTrueButton onClick={clickHandler} data-testid={'trueanswerbutton'}>
-        REAL WORD
-      </StyledTrueButton>
-    );
+  if (isTrue) return <button onClick={clickHandler}>REAL WORD</button>;
 
-  return (
-    <StyledFalseButton onClick={clickHandler} data-testid={'falseanswerbutton'}>
-      FAKE WORD
-    </StyledFalseButton>
-  );
+  return <button onClick={clickHandler}>FAKE WORD</button>;
 };

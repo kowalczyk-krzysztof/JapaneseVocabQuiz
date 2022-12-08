@@ -1,31 +1,27 @@
-import { FC, useEffect } from 'react';
-// Redux
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
-import {
-  SET_DECREASE_TIME,
-  gameSelector,
-  Game,
-} from '../../features/game/gameSlice';
-// Styling
-import { red, green } from '../../createGlobalStyle';
-import {
-  StyledProgressCircle,
-  StyledCountdownContainer,
-} from './countdown-styling';
+import { wordsSelector } from '../../features/words/wordsSlice';
+import { SET_DECREASE_TIME, gameSelector } from '../../features/game/gameSlice';
 
-export const Countdown: FC = (): JSX.Element | null => {
+enum StrokeColor {
+  GREEN = 'green',
+  RED = 'red',
+  YELLOW = 'yellow',
+}
+
+export const Countdown = () => {
   const dispatch = useDispatch();
-  const game: Game = useSelector(gameSelector);
-  const word: WordObject = useSelector(wordsSelector);
+  const game = useSelector(gameSelector);
+  const word = useSelector(wordsSelector);
+  const [strokeColor, setStrokeColor] = useState<StrokeColor>(
+    StrokeColor.GREEN
+  );
 
-  // Progress circle variables
-  const progress: number = (15 - game.time_left) * 6.67;
-  const stroke: number = 4;
-  const radius: number = 22;
-  const circumference: number = radius * 2 * Math.PI;
-  const strokeDashoffset: number =
-    circumference - (progress / 100) * circumference;
+  const progress = (15 - game.time_left) * 6.67;
+  const stroke = 4;
+  const radius = 22;
+  const circumference = radius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
   let strokeColor;
   if (game.time_left >= 7) strokeColor = green;
   else if (game.time_left > 3 && game.time_left < 7) strokeColor = 'yellow';
@@ -42,12 +38,12 @@ export const Countdown: FC = (): JSX.Element | null => {
 
   if (!word.wordLoading && !game.is_question_answered)
     return (
-      <StyledCountdownContainer data-testid={'countdown'}>
+      <div>
         <span>Time left</span>
         <svg height={(radius + stroke) * 2} width={(radius + stroke) * 2}>
-          <StyledProgressCircle
+          <circle
             stroke={strokeColor}
-            fill="transparent"
+            fill='transparent'
             strokeWidth={stroke}
             strokeDasharray={circumference + ' ' + circumference}
             style={{ strokeDashoffset }}
@@ -56,22 +52,22 @@ export const Countdown: FC = (): JSX.Element | null => {
             cy={radius + stroke}
           />
           <text
-            x="50%"
-            y="50%"
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fill="#fafafa"
+            x='50%'
+            y='50%'
+            textAnchor='middle'
+            dominantBaseline='middle'
+            fill='#fafafa'
           >
             {game.time_left}
           </text>
         </svg>
-      </StyledCountdownContainer>
+      </div>
     );
   if (!game.time_left)
     return (
-      <StyledCountdownContainer data-testid={'countdown'}>
+      <div>
         <p>TIME UP</p>
-      </StyledCountdownContainer>
+      </div>
     );
   return null;
 };

@@ -1,11 +1,8 @@
-// Testing libraries
 import { render, screen } from '@testing-library/react';
-// Redux
 import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
 import { SET_GAME_STARTED } from '../../features/game/gameSlice';
 import { SET_NEW_WORD, WordProps } from '../../features/words/wordsSlice';
-// Components
 import { Definitions } from './Definitions';
 
 let store = createTestStore();

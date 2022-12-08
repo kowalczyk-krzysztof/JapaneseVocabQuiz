@@ -1,41 +1,26 @@
-import { FC, useEffect } from 'react';
-// Redux
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  wordsSelector,
-  WordObject,
-  SET_NEW_WORD,
-  WordProps,
-} from '../../features/words/wordsSlice';
-import {
-  Game,
-  gameSelector,
-  SET_TIMER_START,
-} from '../../features/game/gameSlice';
-// Components
+import { wordsSelector, SET_NEW_WORD } from '../../features/words/wordsSlice';
+import { gameSelector, SET_TIMER_START } from '../../features/game/gameSlice';
 import { DisplayWord } from './DisplayWord';
 import { Definitions } from './Definitions';
-// Utils
 import { fetchWord } from '../../features/words/fetchWord';
-// Styling
-import { StyledReading } from './words-styling';
-import { StyledWordContainer } from '../../createGlobalStyle';
 
-export const WordInfo: FC = (): JSX.Element => {
+export const WordInfo = () => {
   const dispatch = useDispatch();
-  const word: WordObject = useSelector(wordsSelector);
-  const game: Game = useSelector(gameSelector);
+  const word = useSelector(wordsSelector);
+  const game = useSelector(gameSelector);
 
   useEffect(() => {
     const fetchAndSetWord = async () => {
       const res = await fetchWord();
 
       if (res) {
-        const wordObject: WordProps = {
-          word: res.data.word,
-          wordExists: res.data.wordExists,
-          reading: res.data.reading,
-          definitions: res.data.definitions,
+        const wordObject = {
+          word: res.word,
+          wordExists: res.wordExists,
+          reading: res.reading,
+          definitions: res.definitions,
         };
         dispatch(SET_NEW_WORD(wordObject));
         dispatch(SET_TIMER_START());
@@ -46,16 +31,16 @@ export const WordInfo: FC = (): JSX.Element => {
 
   if (game.is_question_answered && !word.wordLoading)
     return (
-      <StyledWordContainer data-testid={'wordinfo'}>
+      <div>
         <DisplayWord />
-        <StyledReading>{word.word.reading}</StyledReading>
+        <div>{word.word.reading}</div>
         <Definitions />
-      </StyledWordContainer>
+      </div>
     );
   return (
-    <StyledWordContainer data-testid={'wordinfo'}>
+    <div>
       <DisplayWord />
-    </StyledWordContainer>
+    </div>
   );
 };
 

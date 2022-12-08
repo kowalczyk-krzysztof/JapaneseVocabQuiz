@@ -78,9 +78,7 @@ const gameSlice = createSlice({
     },
   },
 });
-// Selectors
 export const gameSelector = (state: RootState) => state.game;
-// Actions and reducer
 export const {
   SET_GAME_STARTED,
   SET_IS_GAME_OVER,

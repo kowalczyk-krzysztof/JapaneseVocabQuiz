@@ -1,5 +1,3 @@
-import { FC } from 'react';
-// Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
   SET_GAME_STARTED,
@@ -8,20 +6,17 @@ import {
   SET_QUESTION_ANSWERED,
   SET_USER_ANSWER,
   gameSelector,
-  Game,
   SET_IS_GAME_OVER,
 } from '../../features/game/gameSlice';
 import {
   SET_WORD_RESET,
   SET_WORD_LOADING,
 } from '../../features/words/wordsSlice';
-// Styling
-import { StyledGameStateButton } from './buttons-styling';
 
-export const StartButton: FC = (): JSX.Element | null => {
+export const StartButton = () => {
   const dispatch = useDispatch();
-  const game: Game = useSelector(gameSelector);
-  const clickHandler = (): void => {
+  const game = useSelector(gameSelector);
+  const clickHandler = () => {
     if (!game.isGameStarted) dispatch(SET_GAME_STARTED(true));
     if (game.isGameOver) dispatch(SET_IS_GAME_OVER(false));
     dispatch(SET_RESET_LIVES());
@@ -32,10 +27,6 @@ export const StartButton: FC = (): JSX.Element | null => {
     dispatch(SET_WORD_LOADING());
   };
   if (game.isGameOver || !game.isGameStarted)
-    return (
-      <StyledGameStateButton onClick={clickHandler} data-testid={'startbutton'}>
-        START
-      </StyledGameStateButton>
-    );
+    return <button onClick={clickHandler}>START</button>;
   return null;
 };

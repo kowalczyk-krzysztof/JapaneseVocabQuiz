@@ -1,39 +1,29 @@
-import { FC } from 'react';
-// Redux
 import { useSelector } from 'react-redux';
-import { gameSelector, Game } from '../../features/game/gameSlice';
-import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
-// Styling
-import {
-  StyledHeart,
-  StyledHeartDislike,
-  StyledDyingHeart,
-  StyledLivesContainer,
-  StyledHeartsContainer,
-} from './user-stats-styling';
+import { gameSelector } from '../../features/game/gameSlice';
+import { wordsSelector } from '../../features/words/wordsSlice';
 
-export const LivesContainer: FC = (): JSX.Element => {
-  const word: WordObject = useSelector(wordsSelector);
-  const game: Game = useSelector(gameSelector);
-  const lives: number[] = new Array(game.lives).fill(null);
-  const lostLives: number[] = new Array(game.lives_lost).fill(null);
+export const LivesContainer = () => {
+  const word = useSelector(wordsSelector);
+  const game = useSelector(gameSelector);
+  const lives = new Array(game.lives).fill(null);
+  const lostLives = new Array(game.lives_lost).fill(null);
 
   return (
-    <StyledLivesContainer data-testid={'livescontainer'}>
-      <StyledHeartsContainer>
-        {lives.map((el, index) => {
+    <div>
+      <div>
+        {lives.map((_, index) => {
           return <StyledHeart key={index} />;
         })}
-        {lostLives.map((el, index) => {
+        {lostLives.map((_, index) => {
           return <StyledHeartDislike key={index} />;
         })}
-      </StyledHeartsContainer>
+      </div>
 
       {!game.points_gained && game.is_question_answered && !word.wordLoading ? (
-        <StyledHeartsContainer>
+        <div>
           <StyledDyingHeart />
-        </StyledHeartsContainer>
+        </div>
       ) : null}
-    </StyledLivesContainer>
+    </div>
   );
 };

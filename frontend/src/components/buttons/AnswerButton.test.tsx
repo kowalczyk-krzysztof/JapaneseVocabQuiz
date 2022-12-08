@@ -1,7 +1,5 @@
-// Testing libraries
 import userEvent from '@testing-library/user-event';
 import { render } from '@testing-library/react';
-// Redux
 import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
 import {
@@ -11,7 +9,6 @@ import {
   startingTime,
 } from '../../features/game/gameSlice';
 import { SET_NEW_WORD, WordProps } from '../../features/words/wordsSlice';
-// Components
 import { AnswerButton } from './AnswerButton';
 
 let store = createTestStore();

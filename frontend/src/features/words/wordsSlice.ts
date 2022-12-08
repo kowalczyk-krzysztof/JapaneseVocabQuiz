@@ -44,9 +44,9 @@ const wordsSlice = createSlice({
     },
   },
 });
-// Selectors
+
 export const wordsSelector = (state: RootState) => state.words;
-// Actions and reducer
+
 export const { SET_NEW_WORD, SET_WORD_RESET, SET_WORD_LOADING } =
   wordsSlice.actions;
 export default wordsSlice.reducer;

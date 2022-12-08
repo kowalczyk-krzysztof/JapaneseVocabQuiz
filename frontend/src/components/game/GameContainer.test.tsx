@@ -1,9 +1,6 @@
-// Testing libraries
 import { render, screen } from '@testing-library/react';
-// Redux
 import { createTestStore } from '../../app/store';
 import { Provider } from 'react-redux';
-// Components
 import { GameContainer } from './GameContainer';
 
 let store = createTestStore();

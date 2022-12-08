@@ -1,40 +1,27 @@
-import { FC } from 'react';
-// Redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
   SET_WORD_LOADING,
   SET_WORD_RESET,
   wordsSelector,
-  WordObject,
 } from '../../features/words/wordsSlice';
 import {
   SET_QUESTION_ANSWERED,
   SET_RESET_POINTS_GAINED,
-  Game,
   gameSelector,
 } from '../../features/game/gameSlice';
-// Styling
-import { StyledGameStateButton } from './buttons-styling';
 
-export const NewWordButton: FC = (): JSX.Element | null => {
+export const NewWordButton = () => {
   const dispatch = useDispatch();
-  const game: Game = useSelector(gameSelector);
-  const word: WordObject = useSelector(wordsSelector);
+  const game = useSelector(gameSelector);
+  const word = useSelector(wordsSelector);
 
-  const clickHandler = (): void => {
+  const clickHandler = () => {
     dispatch(SET_WORD_RESET());
     dispatch(SET_RESET_POINTS_GAINED());
     dispatch(SET_QUESTION_ANSWERED(false));
     dispatch(SET_WORD_LOADING());
   };
   if (game.is_question_answered && game.lives && !word.wordLoading)
-    return (
-      <StyledGameStateButton
-        onClick={clickHandler}
-        data-testid={'newwordbutton'}
-      >
-        NEW WORD
-      </StyledGameStateButton>
-    );
+    return <button onClick={clickHandler}>NEW WORD</button>;
   return null;
 };

@@ -1,44 +1,32 @@
-import { FC } from 'react';
-// Redux
 import { useSelector } from 'react-redux';
-import { gameSelector, Game } from '../../features/game/gameSlice';
-import { wordsSelector, WordObject } from '../../features/words/wordsSlice';
-// Components
+import { gameSelector } from '../../features/game/gameSlice';
+import { wordsSelector } from '../../features/words/wordsSlice';
 import { DisplayWord } from '../words/DisplayWord';
 import { Definitions } from '../words/Definitions';
-// Styling
-import { green, StyledWordContainer } from '../../createGlobalStyle';
-import {
-  StyledGameOverStats,
-  StyledUserStatsBase,
-  StyledWordAndButtons,
-  StyledScreen,
-} from './game-styling';
-import { StyledReading } from '../words/words-styling';
 import { ButtonContainer } from '../buttons/ButtonContainer';
 
-export const GameOverScreen: FC = (): JSX.Element => {
-  const word: WordObject = useSelector(wordsSelector);
-  const game: Game = useSelector(gameSelector);
+export const GameOverScreen = () => {
+  const word = useSelector(wordsSelector);
+  const game = useSelector(gameSelector);
 
   return (
-    <StyledScreen>
-      <StyledUserStatsBase data-testid={'gameoverscreen'}>
+    <div>
+      <div>
         <h1>GAME OVER</h1>
-      </StyledUserStatsBase>
-      <StyledWordAndButtons>
-        <StyledWordContainer>
-          <StyledGameOverStats>
+      </div>
+      <div>
+        <div>
+          <div>
             <p>FINAL SCORE</p>
             <h2 style={{ color: green }}>{game.points}</h2>
             <p>LAST WORD</p>
             <DisplayWord />
-            <StyledReading>{word.word.reading}</StyledReading>
+            <div>{word.word.reading}</div>
             <Definitions />
-          </StyledGameOverStats>
-        </StyledWordContainer>
-        <ButtonContainer />
-      </StyledWordAndButtons>
-    </StyledScreen>
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
   );
 };
