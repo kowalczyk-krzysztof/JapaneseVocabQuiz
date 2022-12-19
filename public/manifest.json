@@ -1,0 +1,25 @@
+{
+  "short_name": "Japanese",
+  "name": "Japanese Words Quiz",
+  "description": "Educational quiz. Generate a two-kanji word and guess if it's a real Japanese word.",
+  "lang": "en-GB",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4b32ae",
+  "background_color": "#4b32ae"
+}
