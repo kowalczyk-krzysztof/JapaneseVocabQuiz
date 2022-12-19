@@ -6,8 +6,8 @@ import { Definitions } from '../words/Definitions';
 import { StartButton } from '../buttons/StartButton';
 
 export const GameOverScreen = () => {
-  const word = useSelector(wordsSelector);
-  const game = useSelector(gameSelector);
+  const { reading } = useSelector(wordsSelector);
+  const { points } = useSelector(gameSelector);
 
   return (
     <div>
@@ -18,10 +18,10 @@ export const GameOverScreen = () => {
         <div>
           <div>
             <p>FINAL SCORE</p>
-            <h2 style={{ color: ' green' }}>{game.points}</h2>
+            <h2>{points}</h2>
             <p>LAST WORD</p>
             <DisplayWord />
-            <div>{word.word.reading}</div>
+            <div>{reading}</div>
             <Definitions />
             <StartButton />
           </div>

@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
 export type Game = {
-  isGameStarted: boolean;
-  points: number;
-  points_gained: number;
-  lives: number;
-  user_answer: boolean | null;
-  isAnswered: boolean;
-  time_left: number;
+  readonly isGameStarted: boolean;
+  readonly points: number;
+  readonly points_gained: number;
+  readonly lives: number;
+  readonly user_answer: boolean | null;
+  readonly isAnswered: boolean;
+  readonly time_left: number;
 };
 
 export const MAX_LIVES = 5;

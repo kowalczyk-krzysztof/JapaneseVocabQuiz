@@ -12,7 +12,7 @@ enum StrokeColor {
 export const Countdown = () => {
   const dispatch = useDispatch();
   const { time_left, isAnswered } = useSelector(gameSelector);
-  const word = useSelector(wordsSelector);
+  const { wordLoading } = useSelector(wordsSelector);
   const [strokeColor, setStrokeColor] = useState<StrokeColor>(
     StrokeColor.GREEN
   );
@@ -30,15 +30,15 @@ export const Countdown = () => {
   }, [time_left]);
 
   useEffect(() => {
-    if (time_left && !isAnswered && !word.wordLoading) {
+    if (time_left && !isAnswered && !wordLoading) {
       const interval = setInterval(() => {
         dispatch(SET_DECREASE_TIME());
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [dispatch, time_left, isAnswered, word.wordLoading]);
+  }, [dispatch, time_left, isAnswered, wordLoading]);
 
-  if (!word.wordLoading && !isAnswered)
+  if (!wordLoading && !isAnswered)
     return (
       <div>
         <span>Time left</span>

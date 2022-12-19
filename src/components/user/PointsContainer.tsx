@@ -2,13 +2,13 @@ import { useSelector } from 'react-redux';
 import { gameSelector } from '../../features/game/gameSlice';
 
 export const PointsContainer = () => {
-  const game = useSelector(gameSelector);
+  const { points, points_gained } = useSelector(gameSelector);
 
   return (
     <div>
       <span>Points</span>
-      <span>{game.points}</span>
-      {game.points_gained ? <div> +{game.points_gained}</div> : null}
+      <span>{points}</span>
+      {points_gained ? <div>+{points_gained}</div> : null}
     </div>
   );
 };

@@ -1,43 +1,40 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export interface WordProps {
-  word: string;
-  wordExists: boolean;
-  reading: string;
-  definitions: string[];
-}
+export type WordDto = {
+  readonly word: string;
+  readonly wordExists: boolean;
+  readonly reading: string;
+  readonly definitions: string[];
+};
 
-export interface WordObject {
-  word: WordProps;
-  wordLoading: boolean;
-}
-export const initialState: WordObject = {
-  word: {
-    word: '',
-    wordExists: false,
-    reading: '',
-    definitions: [''],
-  },
+export type WordDtoWithLoading = WordDto & {
+  readonly wordLoading: boolean;
+};
+export const initialState: WordDtoWithLoading = {
+  word: '',
+  wordExists: false,
+  reading: '',
+  definitions: [],
   wordLoading: false,
 };
 
 const wordsSlice = createSlice({
-  name: `words`,
+  name: 'words',
   initialState,
   reducers: {
-    SET_NEW_WORD(state, action: PayloadAction<WordProps>) {
+    SET_NEW_WORD(state, action: PayloadAction<WordDto>) {
       state.wordLoading = false;
-      state.word.word = action.payload.word;
-      state.word.wordExists = action.payload.wordExists;
-      state.word.reading = action.payload.reading;
-      state.word.definitions = action.payload.definitions;
+      state.word = action.payload.word;
+      state.wordExists = action.payload.wordExists;
+      state.reading = action.payload.reading;
+      state.definitions = action.payload.definitions;
     },
     SET_WORD_RESET(state) {
-      state.word.word = '';
-      state.word.wordExists = false;
-      state.word.reading = '';
-      state.word.definitions = [''];
+      state.word = '';
+      state.wordExists = false;
+      state.reading = '';
+      state.definitions = [];
     },
     SET_WORD_LOADING(state) {
       state.wordLoading = true;

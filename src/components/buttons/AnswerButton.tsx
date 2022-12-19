@@ -16,13 +16,13 @@ type Props = {
 
 export const AnswerButton: FC<Props> = ({ isCorrectAnswer }) => {
   const dispatch = useDispatch();
-  const word = useSelector(wordsSelector);
+  const { wordExists } = useSelector(wordsSelector);
   const { time_left } = useSelector(gameSelector);
   const clickHandler = () => {
     dispatch(SET_USER_ANSWER(isCorrectAnswer));
     dispatch(SET_QUESTION_ANSWERED(true));
     dispatch(
-      word.word.wordExists === isCorrectAnswer
+      wordExists === isCorrectAnswer
         ? SET_POINTS(POINTS_PER_SECOND * time_left)
         : SET_REMOVE_LIFE()
     );

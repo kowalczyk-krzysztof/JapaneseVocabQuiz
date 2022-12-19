@@ -16,13 +16,13 @@ export const WordInfo = () => {
       const res = await fetchWord();
 
       if (res) {
-        const wordObject = {
+        const wordDto = {
           word: res.word,
           wordExists: res.wordExists,
           reading: res.reading,
           definitions: res.definitions,
         };
-        dispatch(SET_NEW_WORD(wordObject));
+        dispatch(SET_NEW_WORD(wordDto));
         dispatch(SET_TIMER_START());
       }
     };
@@ -33,7 +33,7 @@ export const WordInfo = () => {
     return (
       <div>
         <DisplayWord />
-        <div>{word.word.reading}</div>
+        <div>{word.reading}</div>
         <Definitions />
       </div>
     );

@@ -12,8 +12,8 @@ import {
 
 export const NewWordButton = () => {
   const dispatch = useDispatch();
-  const game = useSelector(gameSelector);
-  const word = useSelector(wordsSelector);
+  const { isAnswered, lives } = useSelector(gameSelector);
+  const { wordLoading } = useSelector(wordsSelector);
 
   const clickHandler = () => {
     dispatch(SET_WORD_RESET());
@@ -21,7 +21,7 @@ export const NewWordButton = () => {
     dispatch(SET_QUESTION_ANSWERED(false));
     dispatch(SET_WORD_LOADING());
   };
-  if (game.isAnswered && game.lives && !word.wordLoading)
+  if (isAnswered && lives && wordLoading)
     return <button onClick={clickHandler}>NEW WORD</button>;
   return null;
 };
