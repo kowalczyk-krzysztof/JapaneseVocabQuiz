@@ -1,4 +1,4 @@
-# An educational game to test your Japanese vocabulary
+# Educational game to test your Japanese vocabulary
 
 ⚠️This was an early project of mine and it could use refactors (for example, non-optimal Redux usage). Some refactors are already being implemented on dev branch⚠️
 
